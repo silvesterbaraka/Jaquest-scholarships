@@ -20,70 +20,106 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
- <style>
+<style>
+/* ======================================================
+   GLOBAL BASE STYLES
+====================================================== */
 body {
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  padding-top: 100px; /* Adjusted padding to ensure content isn't hidden by the nav bar */
+  padding-top: 100px; /* Prevent navbar overlap */
 }
-.text-indigo-600 {
-  color: #fbbf24; /* Yellow color for "Global" */
-}
+
+/* ======================================================
+   TEXT & COLOR OVERRIDES
+====================================================== */
+.text-indigo-600,
 .text-indigo-400 {
-  color: #fbbf24; /* Yellow color for "Dreams" */
+  color: #fbbf24; /* Unified yellow highlight */
 }
+
 .text-shadow-lg {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
+
 .text-shadow-md {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
+
+/* ======================================================
+   NAVIGATION & MENU
+====================================================== */
 #mobile-menu:not(.hidden) {
-  animation: slideright 0.4s ease-out;
+  animation: slideRight 0.4s ease-out;
 }
+
+/* ======================================================
+   ANIMATIONS
+====================================================== */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 .animate__fadeOut {
   animation: fadeOut 1s forwards;
 }
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; display: none; }
-}
-@keyframes slideLeft {
+
+@keyframes slideRight {
   from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  to   { transform: translateX(0); opacity: 1; }
 }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+/* ======================================================
+   PARALLAX EFFECTS
+====================================================== */
 .parallax {
   transform: translateY(var(--scroll, 0px));
   transition: transform 0.2s ease-out;
 }
+
 .video-parallax {
   transform: scale(var(--scale, 1));
   transition: transform 0.2s ease-out;
 }
+
+/* ======================================================
+   ICONS & EFFECTS
+====================================================== */
 .globe-icon {
   animation: bounce 2s ease-in-out infinite;
 }
+
 .testimonial-slider {
   will-change: transform;
 }
-@keyframes slideright {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
+
+/* ======================================================
+   GRADIENT TEXT
+====================================================== */
 .gradient-text {
   background: linear-gradient(to right, #3b82f6, #06b6d4);
-  /* Use vendor prefixes first, then the standard property last for best compatibility and to avoid warnings */
-  -webkit-background-clip: text;      /* For Chrome, Safari, Edge */
-  background-clip: text;              /* Standard property for future support */
-  color: transparent;                 /* Fallback for browsers that don't support background-clip:text */
-  -webkit-text-fill-color: transparent; /* For Chrome, Safari, Edge */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
+
+/* ======================================================
+   SERVICE CARDS
+====================================================== */
 .service-card:hover {
   transform: translateY(-5px);
   transition: all 0.3s ease-in-out;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
+
 .service-link {
   display: inline-block;
   margin-top: 1rem;
@@ -91,21 +127,151 @@ body {
   font-weight: 600;
   transition: color 0.3s;
 }
+
 .service-link:hover {
   color: #06b6d4;
 }
+
+/* ======================================================
+   CUSTOM SHAPES
+====================================================== */
 .rounded-custom {
   border-radius: 100px 0 100px 0;
 }
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
+
+/* ======================================================
+   JAQUEST SECTION (MERGED FROM INLINE STYLE)
+====================================================== */
+.jaquest-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.jaquest-left,
+.jaquest-right {
+  flex: 1 1 300px;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.jaquest-images {
+  display: flex;
+  gap: 1rem;
+}
+
+.jaquest-image {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.jaquest-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.jaquest-image-left {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.jaquest-image-right {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.jaquest-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: black;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.jaquest-play:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.jaquest-support {
+  background-color: #00a79d;
+  color: white;
+  padding: 1rem;
+  border-radius: 0 50px 50px 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.support-icon {
+  background: white;
+  color: #00a79d;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jaquest-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.jaquest-stat {
+  text-align: center;
+}
+
+.jaquest-stat .number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00a79d;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 768px) {
+  .jaquest-images {
+    flex-direction: column;
   }
-  50% {
-    transform: translateY(-30px);
+
+  .jaquest-image-left,
+  .jaquest-image-right {
+    border-radius: 15px;
   }
-    }
+
+  .jaquest-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .jaquest-left,
+  .jaquest-right {
+    max-width: 100%;
+  }
+}
 </style>
+
 <!-- Navbar -->
 <nav class="fixed top-0 left-0 w-full bg-blue-600 text-white shadow-md z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,23 +309,6 @@ body {
     </div>
   </div>
 </nav>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const menuBtn = document.getElementById('menu-button');
-    const closeBtn = document.getElementById('close-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('hidden');
-      });
-    }
-    if (closeBtn && mobileMenu) {
-      closeBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    }
-  });
-</script>
 <!-- Hero Section -->
 <section class="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden text-white">
   <div class="absolute inset-0 z-0 video-parallax">
@@ -192,26 +341,7 @@ body {
     <a href="#about">↓</a>
   </div>
 </section>
-<script>
-  AOS.init({
-    duration: 1400,
-    easing: 'ease-in-out-back',
-    once: true,
-    mirror: false,
-    offset: 100,
-  });
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    document.querySelectorAll('.parallax').forEach(el => {
-      el.style.setProperty('--scroll', `${scrollY * -0.2}px`);
-    });
-    const video = document.querySelector('.video-parallax');
-    if (video) {
-      const scaleValue = 1 + scrollY * 0.0005;
-      video.style.setProperty('--scale', scaleValue);
-    }
-  });
-</script>
+
 <!-- Hero Section -->
 <section class="p-6 pt-10 bg-white" data-aos="fade-up" data-aos-duration="1200">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
@@ -223,10 +353,12 @@ body {
         </svg>
         Welcome to JaQuest Scholarships Education Consultancy
       </div>
-      <h1 class="text-4xl font-bold leading-tight sm:text-5xl" data-aos="fade-up" data-aos-delay="300">
-        Experience Elite Learning from <br />
-        Globally <span class="text-yellow-500">Ranked</span> Universities.
-      </h1>
+      <h2 class="text-4xl font-bold leading-tight sm:text-5xl"
+    data-aos="fade-up"
+    data-aos-delay="300">
+  Experience Elite Learning from <br />
+  Globally <span class="text-yellow-500">Ranked</span> Universities.
+</h2>
       <div class="flex justify-center items-center gap-4 flex-wrap" data-aos="zoom-in" data-aos-delay="400">
         <a href="form.html">
           <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-full">
@@ -329,161 +461,7 @@ body {
   </div>
 </section>
 
-  <section style="font-family: Arial, sans-serif; background: #fff; padding: 2rem;">
-<style>
-  .jaquest-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    max-width: 1200px;
-    margin: auto;
-  }
-
-  .jaquest-left,
-  .jaquest-right {
-    flex: 1 1 300px;
-    max-width: 550px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .jaquest-images {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .jaquest-image {
-    position: relative;
-    flex: 1;
-    overflow: hidden;
-  }
-
-  .jaquest-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .jaquest-image-left {
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .jaquest-image-right {
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-  .jaquest-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    color: black;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
-  }
-
-  .jaquest-play:hover {
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-
-  .jaquest-support {
-    background-color: #00a79d;
-    color: white;
-    padding: 1rem;
-    border-radius: 0 50px 50px 0;
-    max-width: 550px;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .support-icon {
-    background: white;
-    color: #00a79d;
-    border-radius: 50%;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .support-text {
-    line-height: 1.2;
-  }
-
-  .support-text strong {
-    font-size: 1.2rem;
-  }
-
-  .jaquest-right h2 {
-    font-size: 2rem;
-    color: #222;
-  }
-
-  .jaquest-right p {
-    color: #555;
-    line-height: 1.6;
-  }
-
-  .jaquest-stats {
-    display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .jaquest-stat {
-    text-align: center;
-  }
-
-  .jaquest-stat .number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #00a79d;
-  }
-
-  @media (max-width: 768px) {
-    .jaquest-images {
-      flex-direction: column;
-    }
-
-    .jaquest-image-left,
-    .jaquest-image-right {
-      border-radius: 15px;
-    }
-
-    .jaquest-stats {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .jaquest-left,
-    .jaquest-right {
-      max-width: 100%;
-    }
-  }
-</style>
-
+ 
 <div class="jaquest-container">
   <!-- Left Column -->
   <div class="jaquest-left">
@@ -544,44 +522,7 @@ body {
   <div class="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
   <p class="text-gray-700 text-lg font-medium">Preparing your journey...</p>
 </div>
-<!-- Script -->
-<script>
-function startJourney() {
-  const loader = document.getElementById("loadingScreen");
-  loader.classList.remove("hidden");
-  loader.classList.add("opacity-0");
-  setTimeout(() => loader.classList.remove("opacity-0"), 50);
-  setTimeout(() => {
-    window.location.href = "form.html";
-  }, 1200);
-}
-</script>
-<style>
-.animate-spin-slow {
-  animation: spin 2s linear infinite;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-</style>
-<!-- Video Play Button Script -->
-<script>
-  // Only run if playBtn exists on the page
-  const playBtn = document.getElementById("playBtn");
-  if (playBtn) {
-    playBtn.addEventListener("click", function () {
-      const video = document.getElementById("videoElement");
-      const thumbnail = document.getElementById("videoThumb");
-      this.style.display = "none";
-      if (thumbnail) thumbnail.style.display = "none";
-      if (video) {
-        video.classList.remove("hidden");
-        video.play();
-      }
-    });
-  }
-</script>
+
 <!-- Swiper CSS (should be in <head>, but left here if needed for context) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 <section class="py-16 bg-gray-50" id="testimonials" data-aos="fade-up" data-aos-duration="1200">
@@ -941,10 +882,6 @@ function startJourney() {
     </div>
   </div>
 </section>
-<!-- AOS Library (for animations) -->
-<script>
-  AOS.init({ duration: 1000, once: true });
-</script>
 <!-- Chat Button -->
 <button onclick="toggleChat()" 
   class="fixed top-1/2 right-4 transform -translate-y-1/2 z-[9999]
@@ -1054,50 +991,6 @@ function startJourney() {
   title="Back to Top">
   <i data-feather="arrow-up" class="w-5 h-5"></i>
 </a>
-<script src="https://unpkg.com/feather-icons"></script>
-<script>
-  // Only run AOS and feather.replace once
-  document.addEventListener("DOMContentLoaded", function () {
-    if (window.AOS) AOS.init({ duration: 1000, once: true });
-    if (window.feather) feather.replace();
-  });
-  function toggleChat() {
-    const chat = document.getElementById('chatContainer');
-    if (chat.classList.contains('translate-x-full')) {
-      chat.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
-      chat.classList.add('translate-x-0', 'opacity-100', 'pointer-events-auto');
-    } else {
-      chat.classList.remove('translate-x-0', 'opacity-100', 'pointer-events-auto');
-      chat.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
-    }
-  }
-</script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-<script>
-  // Only run lucide.createIcons if lucide is loaded
-  document.addEventListener("DOMContentLoaded", function () {
-    if (window.lucide) lucide.createIcons();
-  });
-</script>
-<script>
-  // Only run if playBtn exists on the page
-  document.addEventListener("DOMContentLoaded", function () {
-    const playBtn = document.getElementById("playBtn");
-    if (playBtn) {
-      playBtn.addEventListener("click", function () {
-        const video = document.getElementById("videoElement");
-        const thumbnail = document.getElementById("videoThumb");
-        this.style.display = "none";
-        if (thumbnail) thumbnail.style.display = "none";
-        if (video) {
-          video.classList.remove("hidden");
-          video.play();
-        }
-      });
-    }
-  });
-</script>
 <!-- Fixed Transparent Blue Bottom Navbar -->
 <nav class="fixed bottom-0 left-0 right-0 bg-blue-900 bg-opacity-70 backdrop-blur-md z-50">
   <div class="flex justify-around items-center py-3 text-white text-xs sm:text-sm">
@@ -1152,153 +1045,181 @@ function startJourney() {
     </div>
   </div>
 </div>
+  <!-- External Libraries -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
 <script>
-  function openVideoModal() {
-    const modal = document.getElementById('videoModal');
-    const modalContent = document.getElementById('modalContent');
-    const video = document.getElementById('videoPlayer');
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.classList.add('opacity-100', 'pointer-events-auto');
-    // Fade-in effect
-    setTimeout(() => {
-      modalContent.classList.remove('scale-90', 'opacity-0');
-      modalContent.classList.add('scale-100', 'opacity-100');
-    }, 100);
-    video.currentTime = 0; // Start from beginning
-    video.play(); // Auto play
+/* ======================================================
+   GLOBAL UTILITIES
+====================================================== */
+
+// Video Modal
+function openVideoModal() {
+  const modal = document.getElementById('videoModal');
+  const modalContent = document.getElementById('modalContent');
+  const video = document.getElementById('videoPlayer');
+  if (!modal || !modalContent || !video) return;
+
+  modal.classList.remove('opacity-0', 'pointer-events-none');
+  modal.classList.add('opacity-100', 'pointer-events-auto');
+
+  setTimeout(() => {
+    modalContent.classList.remove('scale-90', 'opacity-0');
+    modalContent.classList.add('scale-100', 'opacity-100');
+  }, 100);
+
+  video.currentTime = 0;
+  video.play();
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById('videoModal');
+  const modalContent = document.getElementById('modalContent');
+  const video = document.getElementById('videoPlayer');
+  if (!modal || !modalContent || !video) return;
+
+  video.pause();
+  video.currentTime = 0;
+
+  modalContent.classList.remove('scale-100', 'opacity-100');
+  modalContent.classList.add('scale-90', 'opacity-0');
+
+  setTimeout(() => {
+    modal.classList.remove('opacity-100', 'pointer-events-auto');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+  }, 300);
+}
+
+// Chat Toggle
+function toggleChat() {
+  const chat = document.getElementById('chatContainer');
+  if (!chat) return;
+
+  chat.classList.toggle('translate-x-full');
+  chat.classList.toggle('translate-x-0');
+  chat.classList.toggle('opacity-0');
+  chat.classList.toggle('opacity-100');
+  chat.classList.toggle('pointer-events-none');
+  chat.classList.toggle('pointer-events-auto');
+}
+
+// Loading → Redirect
+function startJourney() {
+  const loader = document.getElementById("loadingScreen");
+  if (!loader) return;
+
+  loader.classList.remove("hidden");
+  loader.classList.add("opacity-0");
+
+  setTimeout(() => loader.classList.remove("opacity-0"), 50);
+  setTimeout(() => window.location.href = "form.html", 1200);
+}
+
+/* ======================================================
+   DOM READY INITIALIZATION
+====================================================== */
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* AOS */
+  if (window.AOS) {
+    AOS.init({
+      duration: 1200,
+      once: true,
+      easing: 'ease-in-out-back',
+      offset: 100
+    });
   }
-  function closeVideoModal() {
-    const modal = document.getElementById('videoModal');
-    const modalContent = document.getElementById('modalContent');
-    const video = document.getElementById('videoPlayer');
-    video.pause();
-    video.currentTime = 0; // Reset video
-    modalContent.classList.remove('scale-100', 'opacity-100');
-    modalContent.classList.add('scale-90', 'opacity-0');
-    setTimeout(() => {
-      modal.classList.remove('opacity-100', 'pointer-events-auto');
-      modal.classList.add('opacity-0', 'pointer-events-none');
-    }, 300);
+
+  /* Icons */
+  if (window.feather) feather.replace();
+  if (window.lucide) lucide.createIcons();
+
+  /* Mobile Menu */
+  const menuBtn = document.getElementById('menu-button');
+  const closeBtn = document.getElementById('close-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
   }
-</script>
-<script>
-  // Testimonial slider navigation (safe for missing elements)
-  document.addEventListener('DOMContentLoaded', function () {
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const testimonials = document.querySelector('.testimonial-slider');
-    const testimonialItems = document.querySelectorAll('.testimonial');
-    if (prevBtn && nextBtn && testimonials && testimonialItems.length > 0) {
-      const totalSlides = testimonialItems.length;
-      let currentIndex = 0;
-      function updateSlider() {
-        const offset = -currentIndex * 100;
-        testimonials.style.transition = 'transform 0.5s ease';
-        testimonials.style.transform = `translateX(${offset}%)`;
+  if (closeBtn && mobileMenu) {
+    closeBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  }
+
+  /* Play Inline Video (if exists) */
+  const playBtn = document.getElementById("playBtn");
+  if (playBtn) {
+    playBtn.addEventListener("click", function () {
+      const video = document.getElementById("videoElement");
+      const thumb = document.getElementById("videoThumb");
+      this.style.display = "none";
+      if (thumb) thumb.style.display = "none";
+      if (video) {
+        video.classList.remove("hidden");
+        video.play();
       }
-      prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-        } else {
-          currentIndex = totalSlides - 1;
-        }
-        updateSlider();
-      });
-      nextBtn.addEventListener('click', () => {
-        if (currentIndex < totalSlides - 1) {
-          currentIndex++;
-        } else {
-          currentIndex = 0;
-        }
-        updateSlider();
-      });
-      // For Touch Devices (Swiper)
-      let touchStart = 0;
-      testimonials.addEventListener('touchstart', (e) => {
-        touchStart = e.touches[0].clientX;
-      });
-      testimonials.addEventListener('touchend', (e) => {
-        let touchEnd = e.changedTouches[0].clientX;
-        if (touchStart - touchEnd > 50) {
-          nextBtn.click();
-        } else if (touchEnd - touchStart > 50) {
-          prevBtn.click();
-        }
-      });
-    }
-  });
-</script>
-<script>
-  // Swiper initialization (safe for missing Swiper)
-  document.addEventListener('DOMContentLoaded', function () {
-    if (window.Swiper) {
-      var swiper = new Swiper(".mySwiper", {
-        loop: true,
-        grabCursor: true,
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-          delay: 4000,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-          320: {
-            slidesPerView: 1,
-          },
-          640: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-          },
-        },
-      });
-    }
-  });
-</script>
-<script>
-  // Animated count-up (safe for missing element)
-  document.addEventListener('DOMContentLoaded', function () {
-    const countEl = document.getElementById('animated-count');
-    const start = 700;
-    const end = 755;
-    const duration = 2000;
+    });
+  }
+
+  /* Swiper Testimonials */
+  if (window.Swiper && document.querySelector('.mySwiper')) {
+    new Swiper(".mySwiper", {
+      loop: true,
+      grabCursor: true,
+      spaceBetween: 30,
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+      breakpoints: {
+        320: { slidesPerView: 1 },
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
+  }
+
+  /* Animated Counter */
+  const countEl = document.getElementById('animated-count');
+  if (countEl) {
+    const start = 700, end = 755, duration = 2000;
     const step = Math.max(Math.floor(duration / (end - start)), 20);
-    let interval;
-    function animateCount() {
+
+    const observer = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
       let current = start;
-      clearInterval(interval);
-      interval = setInterval(() => {
-        current++;
-        countEl.textContent = current + '+';
-        if (current >= end) {
-          clearInterval(interval);
-        }
+      const interval = setInterval(() => {
+        countEl.textContent = `${++current}+`;
+        if (current >= end) clearInterval(interval);
       }, step);
-    }
-    if (countEl) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCount();
-          }
-        });
-      }, { threshold: 0.5 });
-      observer.observe(countEl);
-    }
+      observer.disconnect();
+    }, { threshold: 0.5 });
+
+    observer.observe(countEl);
+  }
+});
+
+/* ======================================================
+   PARALLAX (SCROLL – SINGLE LISTENER)
+====================================================== */
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  if (Math.abs(window.scrollY - lastScroll) < 5) return;
+  lastScroll = window.scrollY;
+
+  document.querySelectorAll('.parallax').forEach(el => {
+    el.style.setProperty('--scroll', `${window.scrollY * -0.2}px`);
   });
+
+  const video = document.querySelector('.video-parallax');
+  if (video) {
+    video.style.setProperty('--scale', 1 + window.scrollY * 0.0005);
+  }
+});
 </script>
 </body>
 </html>
+
 

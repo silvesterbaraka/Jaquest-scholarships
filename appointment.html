@@ -22,7 +22,6 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* NAV LINKS */
     nav a {
       color: #e5e7eb;
       transition: color .2s;
@@ -31,9 +30,8 @@
       color: #fde047;
     }
 
-    /* FORM */
     .form-container {
-      background: rgba(15,23,42,0.95);
+      background: rgba(15,23,42,0.96);
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.12);
     }
@@ -43,7 +41,7 @@
     .form-textarea {
       width: 100%;
       padding: 14px 16px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.14);
       border: 1px solid rgba(255,255,255,0.35);
       border-radius: 12px;
       color: #f9fafb;
@@ -60,7 +58,7 @@
       outline: none;
       border-color: #38bdf8;
       box-shadow: 0 0 0 3px rgba(56,189,248,.45);
-      background: rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.18);
     }
 
     .form-select option {
@@ -68,18 +66,28 @@
       color: #f8fafc;
     }
 
+    .error-text {
+      color: #f87171;
+      font-size: 0.75rem;
+      margin-top: 4px;
+    }
+
     .form-button {
       background: linear-gradient(to right,#6366f1,#4f46e5);
       border-radius: 9999px;
       padding: 14px;
       font-weight: 600;
-      letter-spacing: 0.3px;
       transition: transform .2s, box-shadow .2s;
     }
 
-    .form-button:hover {
+    .form-button:hover:not(:disabled) {
       transform: translateY(-1px);
       box-shadow: 0 14px 32px rgba(79,70,229,.5);
+    }
+
+    .form-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
 
     #mobileMenu {
@@ -101,15 +109,14 @@
 <body>
 
 <!-- ================= NAVBAR ================= -->
-<nav class="fixed top-0 left-0 w-full bg-blue-800 text-white shadow-lg z-50">
+<nav class="fixed top-0 left-0 w-full bg-blue-800 shadow-lg z-50">
   <div class="max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
 
     <div class="flex items-center gap-4">
-      <img src="jaquestlogo.jpg" class="h-14 w-14 rounded-full ring-2 ring-white">
-      <span class="text-2xl font-bold tracking-wide">JaQuest</span>
+      <img src="jaquestlogo.jpg" class="h-14 w-14 rounded-full ring-2 ring-white" alt="JaQuest logo">
+      <span class="text-2xl font-bold tracking-wide text-white">JaQuest</span>
     </div>
 
-    <!-- Desktop Menu -->
     <div class="hidden md:flex gap-8 text-lg">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
@@ -118,7 +125,6 @@
       <a href="contact.html">Contact</a>
     </div>
 
-    <!-- Mobile Toggle -->
     <button id="menuBtn"
       class="md:hidden p-3 bg-white text-blue-800 rounded-full text-xl shadow-lg"
       aria-label="Open menu">
@@ -145,39 +151,49 @@
   </div>
 </nav>
 
-<!-- ================= APPOINTMENT SECTION ================= -->
+<!-- ================= APPOINTMENT ================= -->
 <section class="min-h-screen pt-28 pb-20 px-4 flex justify-center items-center bg-cover bg-center"
   style="background-image:url('appointment-bg.jpg')">
   <div class="absolute inset-0 bg-black opacity-75"></div>
 
   <div class="relative z-10 w-full max-w-2xl">
 
-    <!-- Breadcrumb -->
     <p class="text-sm text-gray-300 mb-4">
       Home / Appointment
     </p>
 
-    <!-- Header -->
     <div class="text-center mb-8">
       <h1 class="text-4xl md:text-5xl font-bold text-white">
         Book Your Appointment
       </h1>
       <p class="text-gray-300 mt-3">
-        One step away from expert guidance
+        Get expert guidance on scholarships, admissions & visas
       </p>
     </div>
 
     <div class="form-container p-6 sm:p-8">
-      <form id="appointmentForm" class="space-y-6">
+      <form id="appointmentForm" class="space-y-6" novalidate>
+
+        <input type="text" name="company" class="hidden" tabindex="-1">
 
         <div>
           <input name="name" class="form-input" placeholder="Full Name *" required>
-          <p class="text-xs text-gray-400 mt-1">As per official documents</p>
+          <p class="error-text hidden"></p>
         </div>
 
-        <input name="email" type="email" class="form-input" placeholder="Email Address *" required>
+        <div>
+          <input name="email" type="email" class="form-input" placeholder="Email Address *" required>
+          <p class="error-text hidden"></p>
+        </div>
 
-        <!-- Country + Phone -->
+        <select name="purpose" class="form-select" required>
+          <option value="">Purpose of appointment *</option>
+          <option>Scholarship Guidance</option>
+          <option>University Admission</option>
+          <option>Visa Support</option>
+          <option>General Consultation</option>
+        </select>
+
         <div class="flex gap-3">
           <input id="countryInput" list="countryList"
             class="form-input flex-1"
@@ -221,10 +237,15 @@
 
         <div id="successMsg"
           class="hidden text-green-400 text-center font-semibold">
-          ✅ Appointment booked successfully!
+          ✅ Appointment booked successfully! We’ll contact you shortly.
         </div>
 
       </form>
+    </div>
+
+    <!-- Trust -->
+    <div class="mt-10 text-center text-sm text-gray-400">
+      Trusted by 5,000+ students across Africa & Asia
     </div>
   </div>
 </section>
@@ -239,7 +260,6 @@
 <script>
   flatpickr("#appointmentDate", { minDate: "today" });
 
-  // Navbar toggle
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   const closeBtn = document.getElementById("closeBtn");
@@ -247,7 +267,6 @@
   menuBtn.onclick = () => mobileMenu.classList.remove("-translate-x-full");
   closeBtn.onclick = () => mobileMenu.classList.add("-translate-x-full");
 
-  // Countries
   const countries = [
     ["United States","+1"],["United Kingdom","+44"],["India","+91"],
     ["Nigeria","+234"],["Kenya","+254"],["Uganda","+256"],
@@ -278,7 +297,6 @@
     countryCodeInput.value = match ? match[1] : "";
   });
 
-  // Form submit
   const form = document.getElementById("appointmentForm");
   const spinner = document.getElementById("spinner");
   const successMsg = document.getElementById("successMsg");
@@ -289,7 +307,10 @@
     spinner.classList.remove("hidden");
     submitBtn.disabled = true;
 
+    if (form.company.value) return;
+
     const data = Object.fromEntries(new FormData(form));
+    data.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     try {
       await fetch("https://YOUR-BACKEND-URL/api/appointments", {

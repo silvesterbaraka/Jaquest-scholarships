@@ -3,30 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering Programs</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Engineering Programs | JaQuest</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
-    html {
+    body {
       scroll-behavior: smooth;
     }
   </style>
 </head>
 
 <body class="bg-black text-white">
-  <header class="bg-gray-900 text-white p-6 shadow sticky top-0 z-50">
-    <div class="flex justify-between items-center max-w-7xl mx-auto">
-      <h1 class="text-3xl font-bold flex items-center gap-3">
-        <i class="fas fa-university text-yellow-400"></i>
-        Engineering Programs
-      </h1>
-      <a href="form.html" class="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-2 rounded-lg font-semibold shadow-md">Apply Now</a>
-    </div>
-  </header>
 
-  <main class="max-w-7xl mx-auto py-12 px-6 space-y-20">
-    <!-- Diploma Programs -->
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 left-0 w-full bg-blue-600 text-white shadow-md z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-24">
+
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="jaquestlogo.jpg" alt="JaQuest Logo"
+          class="h-14 w-14 rounded-full mr-4" />
+        <span class="text-2xl font-bold">JaQuest</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8 text-lg items-center">
+        <a href="index.html" class="text-teal-300 hover:text-white transition">Home</a>
+        <a href="services.html" class="hover:text-teal-300 transition">Our Services</a>
+        <a href="affordability.html" class="hover:text-teal-300 transition">Affordability</a>
+
+        <!-- Programs Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-teal-300 transition flex items-center gap-1">
+            Programs
+            <svg class="w-4 h-4" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div class="absolute hidden group-hover:block bg-white text-gray-800 rounded shadow-lg mt-3 w-52">
+            <a href="#diploma" class="block px-4 py-2 hover:bg-yellow-200">Diploma</a>
+            <a href="#btech" class="block px-4 py-2 hover:bg-yellow-200">B.Tech</a>
+            <a href="#mtech" class="block px-4 py-2 hover:bg-yellow-200">M.Tech</a>
+            <a href="#phd" class="block px-4 py-2 hover:bg-yellow-200">Ph.D</a>
+            <a href="form.html"
+              class="block px-4 py-2 font-semibold text-blue-700 hover:bg-yellow-300">
+              Apply Now
+            </a>
+          </div>
+        </div>
+
+        <a href="blog.html" class="hover:text-teal-300 transition">News & Blog</a>
+        <a href="contact.html" class="hover:text-teal-300 transition">Contact</a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <div class="md:hidden">
+        <button id="menu-button"
+          class="p-2 rounded-lg bg-white text-blue-600 shadow-lg">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Slide Menu -->
+  <div id="mobile-menu"
+    class="hidden fixed top-0 left-0 w-1/2 h-full bg-[#f5deb3] text-gray-900 shadow-2xl z-50 md:hidden">
+
+    <div class="flex justify-end p-4">
+      <button id="close-menu"
+        class="text-3xl font-bold hover:text-red-600">&times;</button>
+    </div>
+
+    <div class="flex flex-col space-y-4 p-6 font-semibold">
+      <a href="index.html" class="hover:bg-yellow-300 rounded px-4 py-2">Home</a>
+      <a href="services.html" class="hover:bg-yellow-300 rounded px-4 py-2">Our Services</a>
+      <a href="affordability.html" class="hover:bg-yellow-300 rounded px-4 py-2">Affordability</a>
+      <a href="#diploma" class="hover:bg-yellow-300 rounded px-4 py-2">Diploma</a>
+      <a href="#btech" class="hover:bg-yellow-300 rounded px-4 py-2">B.Tech</a>
+      <a href="#mtech" class="hover:bg-yellow-300 rounded px-4 py-2">M.Tech</a>
+      <a href="#phd" class="hover:bg-yellow-300 rounded px-4 py-2">Ph.D</a>
+      <a href="blog.html" class="hover:bg-yellow-300 rounded px-4 py-2">News & Blog</a>
+      <a href="contact.html" class="hover:bg-yellow-300 rounded px-4 py-2">Contact</a>
+      <a href="form.html"
+        class="bg-blue-600 text-white rounded px-4 py-2 text-center">
+        Apply Now
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer -->
+<div class="h-28"></div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="max-w-7xl mx-auto px-6 py-12 space-y-20">
+
+  <!-- Diploma Programs -->
     <section id="diploma" data-aos="fade-up">
       <div class="bg-gray-800 p-6 rounded-xl shadow-md">
         <h2 class="text-4xl font-extrabold text-yellow-400 mb-6">Diploma Programs</h2>
@@ -203,16 +293,43 @@
     </div>
   </section>
   
-  </main>
 
-  <footer class="bg-gray-900 text-white text-center p-6">
-    <p>&copy; 2025 Your Educational Agency. All rights reserved.</p>
-    <p class="text-sm mt-2">Ready to begin? <a href="form.html" class="underline hover:text-yellow-400">Apply now</a></p>
-  </footer>
+</main>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+<!-- ================= FOOTER ================= -->
+<footer class="bg-gray-900 text-center p-6 mt-20">
+  <p class="text-sm">&copy; 2025 JaQuest Scholarship Agency</p>
+  <p class="mt-2">
+    Ready to apply?
+    <a href="form.html" class="text-yellow-400 underline hover:text-yellow-300">
+      Apply Now
+    </a>
+  </p>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.getElementById('menu-button');
+    const closeBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    }
+  });
+</script>
+
 </body>
 </html>

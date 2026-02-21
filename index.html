@@ -263,63 +263,103 @@
     </div>
   </div>
 </section>
-       <!-- Watch Here Button -->
-<button
-  type="button"
-  onclick="openVideoModal()"
-  class="flex items-center text-gray-700 hover:text-yellow-500 transition"
->
-  <div class="w-12 h-12 rounded-full bg-white shadow flex items-center justify-center hover:bg-yellow-100 transition">
-    <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M6 4l10 6-10 6V4z" />
-    </svg>
+<!-- SECOND HERO / INTRO SECTION (FIXED) -->
+<section class="p-6 pt-10 bg-white" data-aos="fade-up" data-aos-duration="1200">
+  <div
+    class="max-w-7xl mx-auto flex flex-col md:flex-row
+           items-center justify-between
+           gap-10 md:gap-16">
+
+    <!-- TEXT COLUMN -->
+    <div class="max-w-2xl text-center md:text-left space-y-6">
+
+      <div
+        class="inline-flex items-center px-4 py-2 bg-white rounded-full shadow
+               text-sm font-medium text-gray-700"
+        data-aos="fade-down" data-aos-delay="200">
+        <svg class="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.264 3.89a1 1 0 00.95.69h4.1c.969 0 1.371 1.24.588 1.81l-3.317 2.41a1 1 0 00-.364 1.118l1.263 3.89c.3.922-.755 1.688-1.538 1.118l-3.317-2.41a1 1 0 00-1.175 0l-3.317 2.41c-.783.57-1.838-.196-1.538-1.118l1.264-3.89a1 1 0 00-.364-1.118l-3.317-2.41c-.783-.57-.38-1.81.588-1.81h4.1a1 1 0 00.95-.69l1.264-3.89z"/>
+        </svg>
+        Welcome to JaQuest Scholarships Education Consultancy
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-bold leading-tight"
+          data-aos="fade-up" data-aos-delay="300">
+        Experience Elite Learning from <br />
+        Globally <span class="text-yellow-500">Ranked</span> Universities.
+      </h1>
+
+      <!-- CTA ROW -->
+      <div class="flex flex-wrap justify-center md:justify-start items-center gap-4"
+           data-aos="zoom-in" data-aos-delay="400">
+
+        <a href="form.html"
+           class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold
+                  px-6 py-3 rounded-full transition">
+          Apply Now
+        </a>
+
+        <button
+          type="button"
+          onclick="openVideoModal()"
+          class="flex items-center text-gray-700 hover:text-yellow-500 transition">
+          <div
+            class="w-12 h-12 rounded-full bg-white shadow
+                   flex items-center justify-center
+                   hover:bg-yellow-100 transition">
+            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M6 4l10 6-10 6V4z"/>
+            </svg>
+          </div>
+          <span class="ml-2 font-medium">Watch Here</span>
+        </button>
+      </div>
+
+      <!-- SOCIAL PROOF -->
+      <div
+        class="flex items-center justify-center md:justify-start
+               mt-4 text-gray-600 text-sm"
+        data-aos="fade-up" data-aos-delay="500">
+        <img class="w-8 h-8 rounded-full ring-2 ring-white mr-2"
+             src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+        <img class="w-8 h-8 rounded-full ring-2 ring-white -ml-3"
+             src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
+        <span class="ml-4">
+          <span class="text-yellow-500 font-semibold">10k</span>
+          Join thousands of students
+        </span>
+      </div>
+
+      <p class="text-base font-medium mt-6"
+         data-aos="zoom-in-up" data-aos-delay="600">
+        Explore
+        <span id="animated-count"
+              class="text-yellow-500 font-bold text-xl md:text-2xl">
+          700+
+        </span>
+        Courses and decide for your career.
+      </p>
+    </div>
+
+    <!-- IMAGE COLUMN -->
+    <div class="w-full md:w-1/2 relative">
+      <div
+        class="overflow-hidden rounded-xl shadow-2xl
+               transform transition-all duration-500
+               hover:scale-105">
+        <img
+          src="student3.jpg"
+          alt="Scholarships Image"
+          class="w-full h-full object-cover rounded-xl"
+          data-aos="fade-left" data-aos-delay="500">
+        <div
+          class="absolute inset-0 bg-gradient-to-t
+                 from-black opacity-30 rounded-xl"></div>
+      </div>
+    </div>
+
   </div>
-  <span class="ml-2 font-medium">Watch Here</span>
-</button>
-
-<div
-  class="flex items-center justify-center mt-4 text-gray-600 text-sm"
-  data-aos="fade-up"
-  data-aos-delay="500"
->
-  <img
-    class="w-8 h-8 rounded-full ring-2 ring-white mr-2"
-    src="https://randomuser.me/api/portraits/men/32.jpg"
-    alt="User 1"
-  />
-  <img
-    class="w-8 h-8 rounded-full ring-2 ring-white -ml-3"
-    src="https://randomuser.me/api/portraits/men/45.jpg"
-    alt="User 2"
-  />
-  <span class="ml-4">
-    <span class="text-yellow-500 font-semibold">10k</span>
-    Join thousands of students
-  </span>
-</div>
-
-<p class="text-base font-medium mt-6" data-aos="zoom-in-up" data-aos-delay="600">
-  Explore
-  <span id="animated-count" class="text-yellow-500 font-bold text-xl md:text-2xl">
-    700+
-  </span>
-  Courses and decide for your career.
-</p>
-
-<!-- Image Box (Right side) -->
-<div class="w-full md:w-1/2 mt-6 md:mt-0 relative">
-  <div class="overflow-hidden rounded-xl shadow-2xl transform transition-all duration-500 hover:scale-105">
-    <img
-      class="w-full h-full object-cover rounded-xl"
-      src="student3.jpg"
-      alt="Scholarships Image"
-      data-aos="fade-left"
-      data-aos-delay="500"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-black opacity-30 rounded-xl"></div>
-  </div>
-</div>
-
+</section>
 <!-- Illustration Character Section -->
 <div class="relative overflow-hidden">
   <div
@@ -1497,3 +1537,4 @@ function closeVideoModal() {
 </script>
 </body>
 </html>
+

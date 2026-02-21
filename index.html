@@ -7,12 +7,15 @@
 <meta name="description" content="JaQuest helps students unlock global opportunities through scholarships, admissions support, and visa assistance." />
 <meta name="keywords" content="scholarships, study abroad, visa assistance, education agency, JaQuest" />
 <meta name="author" content="JaQuest Scholarship Agency" />
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://jaquest.org/" />
 
 <!-- Open Graph -->
 <meta property="og:title" content="JaQuest Scholarship Agency" />
 <meta property="og:description" content="Get access to scholarships, mentorship, and admissions support with JaQuest." />
-<meta property="og:image" content="https://example.com/jaquest.png"loading="lazy" />
-<meta property="og:url" content="https://yourdomain.com" />
+<meta property="og:image" content="https://jaquest.org/assets/og-image.jpg" />
+<meta property="og:url" content="https://jaquest.org/" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -336,7 +339,6 @@ body {
 }
   </style>
 </head>
-
 <body>
 
 <!-- Navbar -->
@@ -385,56 +387,84 @@ body {
 
 <!-- Hero Section -->
 <section class="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden text-white">
+  
+  <!-- Background Video -->
   <div class="absolute inset-0 z-0 video-parallax">
-   <video autoplay muted loop playsinline preload="none">
+    <video autoplay muted loop playsinline preload="none" class="w-full h-full object-cover">
       <source src="deshbaghat.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-transparent"></div>
   </div>
 
-  <div class="relative z-10 px-6 text-center max-w-2xl mx-auto">
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-widest text-shadow-lg parallax"
-        data-aos="fade-down" data-aos-delay="200">
+  <!-- Hero Content -->
+  <div class="relative z-10 px-6 text-center max-w-3xl mx-auto">
+
+    <!-- MAIN H1 (ONLY ONE ON PAGE) -->
+    <h1
+      class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-widest text-shadow-lg parallax"
+      data-aos="fade-down"
+      data-aos-delay="200"
+    >
       Unlock <span class="text-yellow-400">Global</span> Opportunities
     </h1>
 
-    <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed text-shadow-md parallax"
-       data-aos="fade-up" data-aos-delay="400">
+    <!-- Supporting paragraph -->
+    <p
+      class="text-base sm:text-lg md:text-xl text-gray-200 mb-8 leading-relaxed text-shadow-md parallax"
+      data-aos="fade-up"
+      data-aos-delay="400"
+    >
       Helping students secure fully funded scholarships and tuition waivers to achieve their
       <span class="font-semibold text-yellow-400">dreams</span>.
     </p>
 
-    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-6"
-         data-aos="fade-up" data-aos-delay="600">
-      <a href="learn-more.html"
-         class="px-6 py-3 border border-white text-white rounded-full hover:bg-white hover:text-blue-900 transition transform hover:scale-105">
+    <!-- CTAs -->
+    <div
+      class="flex flex-col sm:flex-row justify-center gap-4 mb-6"
+      data-aos="fade-up"
+      data-aos-delay="600"
+    >
+      <a
+        href="learn-more.html"
+        class="px-6 py-3 border border-white text-white rounded-full
+               hover:bg-white hover:text-blue-900 transition transform hover:scale-105"
+      >
         Learn More
       </a>
 
-      <a href="appointment.html"
-         class="px-6 py-3 bg-yellow-500 text-blue-900 font-semibold rounded-full hover:bg-yellow-600 transition">
+      <a
+        href="appointment.html"
+        class="px-6 py-3 bg-yellow-500 text-blue-900 font-semibold rounded-full
+               hover:bg-yellow-600 transition"
+      >
         Book an Appointment
       </a>
     </div>
 
-    <p class="text-lg font-semibold text-indigo-400 mb-6"
-       data-aos="fade-up" data-aos-delay="800">
+    <!-- Social proof -->
+    <p
+      class="text-lg font-semibold text-indigo-400"
+      data-aos="fade-up"
+      data-aos-delay="800"
+    >
       🎓 <span class="text-white">Over 300 students</span> placed in top universities worldwide
     </p>
+
   </div>
 
+  <!-- Scroll indicator -->
   <div class="absolute bottom-6 text-white text-2xl animate-bounce">
-    <a href="#about">↓</a>
+    <a href="#about" aria-label="Scroll to content">↓</a>
   </div>
 </section>
-
-
-<!-- Content Section (unchanged) -->
-<section class="p-6 pt-10 bg-white" data-aos="fade-up" data-aos-duration="1200">
+<!-- Intro Content Section -->
+<section id="about" class="p-6 pt-10 bg-white" data-aos="fade-up" data-aos-duration="1200">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+
     <!-- Text Content -->
     <div class="max-w-2xl text-center md:text-left space-y-6">
+
       <div class="inline-flex items-center px-4 py-2 bg-white rounded-full shadow text-sm font-medium text-gray-700"
            data-aos="fade-down" data-aos-delay="200">
         <svg class="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -443,11 +473,10 @@ body {
         Welcome to JaQuest Scholarships Education Consultancy
       </div>
 
-      <h1 class="text-4xl font-bold leading-tight sm:text-5xl"
-          data-aos="fade-up" data-aos-delay="300">
+      <h2 class="text-4xl font-bold leading-tight sm:text-5xl">
         Experience Elite Learning from <br />
         Globally <span class="text-yellow-500">Ranked</span> Universities.
-      </h1>
+      </h2>
 
       <div class="flex justify-center items-center gap-4 flex-wrap"
            data-aos="zoom-in" data-aos-delay="400">
@@ -455,61 +484,26 @@ body {
            class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-full">
           Apply Now
         </a>
-      </div>
+
+     <!-- Watch Video Button -->
+  <button
+    type="button"
+    onclick="openVideoModal()"
+    class="flex items-center text-gray-700 hover:text-yellow-500 transition">
+    
+    <div
+      class="w-12 h-12 rounded-full bg-white shadow
+             flex items-center justify-center
+             hover:bg-yellow-100 transition">
+      <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M6 4l10 6-10 6V4z"/>
+      </svg>
     </div>
-  </div>
-</section>
-<!-- SECOND HERO / INTRO SECTION (FIXED) -->
-<section class="p-6 pt-10 bg-white" data-aos="fade-up" data-aos-duration="1200">
-  <div
-    class="max-w-7xl mx-auto flex flex-col md:flex-row
-           items-center justify-between
-           gap-10 md:gap-16">
 
-    <!-- TEXT COLUMN -->
-    <div class="max-w-2xl text-center md:text-left space-y-6">
+    <span class="ml-2 font-medium">Watch Here</span>
+  </button>
 
-      <div
-        class="inline-flex items-center px-4 py-2 bg-white rounded-full shadow
-               text-sm font-medium text-gray-700"
-        data-aos="fade-down" data-aos-delay="200">
-        <svg class="w-4 h-4 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.264 3.89a1 1 0 00.95.69h4.1c.969 0 1.371 1.24.588 1.81l-3.317 2.41a1 1 0 00-.364 1.118l1.263 3.89c.3.922-.755 1.688-1.538 1.118l-3.317-2.41a1 1 0 00-1.175 0l-3.317 2.41c-.783.57-1.838-.196-1.538-1.118l1.264-3.89a1 1 0 00-.364-1.118l-3.317-2.41c-.783-.57-.38-1.81.588-1.81h4.1a1 1 0 00.95-.69l1.264-3.89z"/>
-        </svg>
-        Welcome to JaQuest Scholarships Education Consultancy
-      </div>
-
-      <h1 class="text-4xl sm:text-5xl font-bold leading-tight"
-          data-aos="fade-up" data-aos-delay="300">
-        Experience Elite Learning from <br />
-        Globally <span class="text-yellow-500">Ranked</span> Universities.
-      </h1>
-
-      <!-- CTA ROW -->
-      <div class="flex flex-wrap justify-center md:justify-start items-center gap-4"
-           data-aos="zoom-in" data-aos-delay="400">
-
-        <a href="form.html"
-           class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold
-                  px-6 py-3 rounded-full transition">
-          Apply Now
-        </a>
-
-        <button
-          type="button"
-          onclick="openVideoModal()"
-          class="flex items-center text-gray-700 hover:text-yellow-500 transition">
-          <div
-            class="w-12 h-12 rounded-full bg-white shadow
-                   flex items-center justify-center
-                   hover:bg-yellow-100 transition">
-            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M6 4l10 6-10 6V4z"/>
-            </svg>
-          </div>
-          <span class="ml-2 font-medium">Watch Here</span>
-        </button>
-      </div>
+</div>
 
       <!-- SOCIAL PROOF -->
       <div
@@ -517,9 +511,9 @@ body {
                mt-4 text-gray-600 text-sm"
         data-aos="fade-up" data-aos-delay="500">
         <img class="w-8 h-8 rounded-full ring-2 ring-white mr-2"
-             src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+             src="https://randomuser.me/api/portraits/men/32.jpg" loading="lazy" alt="">
         <img class="w-8 h-8 rounded-full ring-2 ring-white -ml-3"
-             src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
+             src="https://randomuser.me/api/portraits/men/45.jpg" loading="lazy" alt="">
         <span class="ml-4">
           <span class="text-yellow-500 font-semibold">10k</span>
           Join thousands of students
@@ -543,11 +537,13 @@ body {
         class="overflow-hidden rounded-xl shadow-2xl
                transform transition-all duration-500
                hover:scale-105">
-        <img
-         <img src="student3.jpg" loading="lazy" alt="Student">
-          alt="Scholarships Image"
-          class="w-full h-full object-cover rounded-xl"
-          data-aos="fade-left" data-aos-delay="500">
+       <img
+  src="student3.jpg"
+  loading="lazy"
+  alt="Scholarships Image"
+  class="w-full h-full object-cover rounded-xl"
+  data-aos="fade-left"
+  data-aos-delay="500">
         <div
           class="absolute inset-0 bg-gradient-to-t
                  from-black opacity-30 rounded-xl"></div>
@@ -562,12 +558,12 @@ body {
     class="absolute top-1/2 right-2 sm:right-4 md:right-6 lg:right-10
            -translate-y-1/2 z-30 character-float"
   >
-    <img
-      src="https://cdn-icons-png.flaticon.com/512/201/201623.png" loading="lazy" alt="Student">
-      alt="Character Illustration"
-      class="h-20 w-20 sm:h-28 sm:w-28 md:h-36 md:w-36 lg:h-44 lg:w-44
-             object-contain transition-transform hover:scale-110 drop-shadow-2xl"
-    />
+   <img
+  src="https://cdn-icons-png.flaticon.com/512/201/201623.png"
+  loading="lazy"
+  alt="Character Illustration"
+  class="h-20 w-20 sm:h-28 sm:w-28 md:h-36 md:w-36 lg:h-44 lg:w-44
+         object-contain transition-transform hover:scale-110 drop-shadow-2xl">
   </div>
 </div>
 <!-- Section: Why Choose JAQuest -->
@@ -761,11 +757,11 @@ body {
   id="loadingScreen"
   class="fixed inset-0 bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-6 hidden transition-opacity duration-300"
 >
-  <img
-    src="jaquestlogo.jpg" loading="lazy" alt="Student">
-    alt="JAQuest Logo"
-    class="w-24 h-24 object-contain animate-spin-slow"
-  />
+ <img
+  src="jaquestlogo.jpg"
+  loading="lazy"
+  alt="JaQuest Logo"
+  class="w-24 h-24 object-contain animate-spin-slow">
   <div class="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
   <p class="text-gray-700 text-lg font-medium">Preparing your journey...</p>
 </div>
@@ -789,7 +785,7 @@ body {
 
         <!-- Testimonial 1 -->
         <div class="swiper-slide group bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-          <img src="student4.jpg" alt="Student 4" class="w-full h-64 object-cover" />
+          <img src="student4.jpg" loading="lazy" alt="Student 4" class="w-full h-64 object-cover" />
           <div class="p-6 text-center">
             <p class="text-gray-600 mb-4">
               "JaQuest opened new doors for my education journey."
@@ -801,7 +797,7 @@ body {
 
         <!-- Testimonial 2 -->
         <div class="swiper-slide group bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-          <img src="student5.jpg" alt="Student 5" class="w-full h-64 object-cover" />
+          <img src="student5.jpg" loading="lazy" alt="Student 5" class="w-full h-64 object-cover" />
           <div class="p-6 text-center">
             <p class="text-gray-600 mb-4">
               "The best consultancy for overseas education. Highly recommend."
@@ -813,7 +809,7 @@ body {
 
         <!-- Testimonial 3 -->
         <div class="swiper-slide group bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-          <img src="student6.jpg" alt="Student 6" class="w-full h-64 object-cover" />
+          <img src="student6.jpg" loading="lazy" alt="Student 6" class="w-full h-64 object-cover" />
           <div class="p-6 text-center">
             <p class="text-gray-600 mb-4">
               "Visa and admission process was made so easy by JaQuest."
@@ -825,7 +821,7 @@ body {
 
         <!-- Testimonial 4 -->
         <div class="swiper-slide group bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-          <img src="student7.jpg" alt="Student 7" class="w-full h-64 object-cover" />
+          <img src="student7.jpg" loading="lazy" alt="Student 7" class="w-full h-64 object-cover" />
           <div class="p-6 text-center">
             <p class="text-gray-600 mb-4">
               "I'm studying abroad now, all thanks to JaQuest!"
@@ -837,7 +833,7 @@ body {
 
         <!-- Testimonial 5 -->
         <div class="swiper-slide group bg-white rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-          <img src="student8.jpg" alt="Student 8" class="w-full h-64 object-cover" />
+          <img src="student8.jpg" loading="lazy" alt="Student 8" class="w-full h-64 object-cover" />
           <div class="p-6 text-center">
             <p class="text-gray-600 mb-4">
               "Highly professional agency with real success stories."
@@ -859,32 +855,44 @@ body {
   </div>
 </section>
 <!-- Courses Section -->
-<section id="courses" class="py-20 bg-white">
+<section id="courses" class="py-20 bg-white" data-aos="fade-up">
   <div class="max-w-6xl mx-auto px-6 text-center">
     <h2 class="text-3xl font-bold text-blue-700 mb-6">Our Courses</h2>
     <p class="text-gray-600 text-lg mb-12">Explore the wide range of courses we offer.</p>
     <div class="grid gap-10 md:grid-cols-3">
-      <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500">
+      <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500"
+     data-aos="zoom-in"
+     data-aos-delay="100">
         <h3 class="text-xl font-semibold mb-2 text-blue-800">Undergraduate Programs</h3>
         <p class="text-gray-600">Access fully funded programs in top universities worldwide.</p>
       </div>
-      <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500">
+     <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500"
+     data-aos="zoom-in"
+     data-aos-delay="100">
         <h3 class="text-xl font-semibold mb-2 text-blue-800">Postgraduate Programs</h3>
         <p class="text-gray-600">Pursue your master's or PhD with global support and mentorship.</p>
       </div>
-      <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500">
+     <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500"
+     data-aos="zoom-in"
+     data-aos-delay="200">
         <h3 class="text-xl font-semibold mb-2 text-blue-800">Short-Term Certifications</h3>
         <p class="text-gray-600">Enhance your skills with short courses in various fields.</p>
       </div>
-      <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500">
+      <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500"
+     data-aos="zoom-in"
+     data-aos-delay="300">
         <h3 class="text-xl font-semibold mb-2 text-blue-800">Language Proficiency</h3>
         <p class="text-gray-600">Prepare for IELTS, TOEFL, and more with expert coaching.</p>
       </div>
-      <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500">
+    <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500"
+     data-aos="zoom-in"
+     data-aos-delay="400">
         <h3 class="text-xl font-semibold mb-2 text-blue-800">Professional Development</h3>
         <p class="text-gray-600">Advance your career with skill-based learning.</p>
       </div>
-      <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500">
+      <div class="bg-[#f5faff] p-8 rounded-2xl shadow-lg hover:scale-105 transition duration-500"
+        data-aos="zoom-in"
+     data-aos-delay="500">
         <h3 class="text-xl font-semibold mb-2 text-blue-800">STEM Programs</h3>
         <p class="text-gray-600">Join cutting-edge STEM programs with hands-on training.</p>
       </div>
@@ -1316,7 +1324,7 @@ body {
     </div>
   </div>
 </div>
-  <!-- =======================
+<!-- =======================
      FOOTER
 ======================== -->
 <footer class="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-gray-200 pt-16">
@@ -1364,6 +1372,7 @@ body {
       <!-- Contact -->
       <div data-aos="fade-up" data-aos-delay="300">
         <h4 class="text-lg font-semibold text-white mb-4">Contact Us</h4>
+
         <ul class="space-y-3 text-sm">
           <li class="flex items-center gap-2">
             <i data-lucide="phone" class="w-4 h-4 text-yellow-400"></i>
@@ -1381,22 +1390,34 @@ body {
 
         <!-- Social Icons -->
         <div class="flex gap-4 mt-5">
-          <a href="#" class="hover:text-yellow-400 transition">
+          <a href="https://wa.me/0000000000" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"
+             class="hover:text-yellow-400 transition">
+            <i data-lucide="message-circle"></i>
+          </a>
+
+          <a href="https://www.facebook.com/jaquest.official" aria-label="Facebook" target="_blank" rel="noopener noreferrer"
+             class="hover:text-yellow-400 transition">
             <i data-lucide="facebook"></i>
           </a>
-          <a href="#" class="hover:text-yellow-400 transition">
+
+          <a href="https://www.instagram.com/jaquest.global" aria-label="Instagram" target="_blank" rel="noopener noreferrer"
+             class="hover:text-yellow-400 transition">
             <i data-lucide="instagram"></i>
           </a>
-          <a href="#" class="hover:text-yellow-400 transition">
-            <i data-lucide="linkedin"></i>
-          </a>
-          <a href="#" class="hover:text-yellow-400 transition">
+
+          <a href="https://x.com/jaquest_global" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer"
+             class="hover:text-yellow-400 transition">
             <i data-lucide="twitter"></i>
           </a>
-        </div>
-      </div>
 
-    </div>
+          <a href="https://www.linkedin.com/company/jaquest-global" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"
+             class="hover:text-yellow-400 transition">
+            <i data-lucide="linkedin"></i>
+          </a>
+        </div>
+      </div> <!-- END Contact -->
+
+    </div> <!-- END Grid -->
 
     <!-- Bottom Bar -->
     <div class="flex flex-col md:flex-row justify-between items-center gap-4 py-6 text-sm text-gray-400">
@@ -1412,10 +1433,6 @@ body {
   </div>
 </footer>
 
-<!-- Auto Year -->
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 <script>
 /* =====================================================
    DOM READY
@@ -1423,19 +1440,33 @@ body {
 document.addEventListener("DOMContentLoaded", function () {
 
   /* ===============================
-     AOS (INIT ONCE)
+     AUTO YEAR (FOOTER)
      =============================== */
-window.addEventListener("load", () => {
-  if (window.AOS) {
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  /* ===============================
+     AOS – CORRECT & STABLE INIT
+     =============================== */
+  window.addEventListener("load", () => {
+    if (!window.AOS) return;
+
     AOS.init({
       duration: 1200,
       easing: "ease-in-out",
       once: true,
       mirror: false,
-      offset: 100,
+      offset: 120,
     });
-  }
-});
+
+    // Refresh after layout settles
+    setTimeout(() => {
+      AOS.refreshHard();
+    }, 500);
+  });
+
   /* ===============================
      MOBILE MENU
      =============================== */
@@ -1444,10 +1475,15 @@ window.addEventListener("load", () => {
   const mobileMenu = document.getElementById("mobile-menu");
 
   if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener("click", () => mobileMenu.classList.remove("hidden"));
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("hidden");
+    });
   }
+
   if (closeBtn && mobileMenu) {
-    closeBtn.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
   }
 
   /* ===============================
@@ -1482,7 +1518,7 @@ window.addEventListener("load", () => {
   });
 
   /* ===============================
-     INLINE HERO VIDEO (LAZY)
+     INLINE HERO VIDEO (LAZY LOAD)
      =============================== */
   const playBtn = document.getElementById("playBtn");
   if (playBtn) {
@@ -1494,46 +1530,10 @@ window.addEventListener("load", () => {
       if (thumb) thumb.style.display = "none";
 
       if (video) {
-        video.removeAttribute("preload"); // load only now
+        video.removeAttribute("preload");
         video.classList.remove("hidden");
         video.play();
       }
-    });
-  }
-
-  /* ===============================
-     TESTIMONIAL SLIDER (MANUAL)
-     =============================== */
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const slider = document.querySelector(".testimonial-slider");
-  const slides = document.querySelectorAll(".testimonial");
-
-  if (prevBtn && nextBtn && slider && slides.length) {
-    let index = 0;
-
-    function update() {
-      slider.style.transform = `translateX(${-index * 100}%)`;
-      slider.style.transition = "transform 0.5s ease";
-    }
-
-    prevBtn.addEventListener("click", () => {
-      index = index > 0 ? index - 1 : slides.length - 1;
-      update();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      index = index < slides.length - 1 ? index + 1 : 0;
-      update();
-    });
-
-    /* Touch support */
-    let startX = 0;
-    slider.addEventListener("touchstart", e => startX = e.touches[0].clientX);
-    slider.addEventListener("touchend", e => {
-      const endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) nextBtn.click();
-      if (endX - startX > 50) prevBtn.click();
     });
   }
 
@@ -1571,12 +1571,13 @@ window.addEventListener("load", () => {
      =============================== */
   const countEl = document.getElementById("animated-count");
   if (countEl) {
-    const start = 700, end = 755;
+    const start = 700;
+    const end = 755;
     const duration = 2000;
     const step = Math.max(duration / (end - start), 20);
     let timer;
 
-    function animate() {
+    function animateCount() {
       let value = start;
       clearInterval(timer);
       timer = setInterval(() => {
@@ -1588,7 +1589,7 @@ window.addEventListener("load", () => {
 
     new IntersectionObserver((entries, obs) => {
       if (entries[0].isIntersecting) {
-        animate();
+        animateCount();
         obs.disconnect();
       }
     }, { threshold: 0.5 }).observe(countEl);
@@ -1661,6 +1662,7 @@ function closeVideoModal() {
 </script>
 </body>
 </html>
+
 
 
 

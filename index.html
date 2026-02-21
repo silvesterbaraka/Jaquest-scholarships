@@ -307,7 +307,10 @@ body {
   font-weight: bold;
   color: #00a79d;
 }
-
+.globe-icon {
+  display: inline-block;
+  will-change: transform;
+}
 /* =====================================================
    RESPONSIVE
 ===================================================== */
@@ -915,7 +918,7 @@ body {
     </div>
     <div class="flex items-center gap-3 px-4 py-2 rounded-xl bg-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
       <div class="p-2 bg-green-100 rounded-full">
-        <i data-lucide="globe" class="w-5 h-5 text-green-600"></i>
+       <i data-lucide="globe" class="w-5 h-5 text-green-600 globe-icon"></i>
       </div>
       <span class="text-sm font-semibold text-gray-800">Hospitality</span>
     </div>
@@ -1557,5 +1560,6 @@ function closeVideoModal() {
 </script>
 </body>
 </html>
+
 
 

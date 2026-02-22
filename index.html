@@ -338,7 +338,7 @@ body {
 }
   </style>
 </head>
-<body>
+<body id="top">
 
 <!-- Navbar -->
 <nav class="fixed top-0 left-0 w-full bg-blue-600 text-white shadow-md z-50">
@@ -389,8 +389,9 @@ body {
   
   <!-- Background Video -->
   <div class="absolute inset-0 z-0 video-parallax">
-   <video
+<video
   class="w-full h-full object-cover"
+  autoplay
   muted
   loop
   playsinline
@@ -1172,7 +1173,7 @@ body {
 </section>
 <!-- Chat Button -->
 <button onclick="toggleChat()" 
-  class="fixed top-1/2 right-4 transform -translate-y-1/2 z-[9999]
+  class="hidden md:flex fixed top-1/2 right-4 transform -translate-y-1/2 z-[9999]
          bg-blue-600 hover:bg-blue-700 text-white p-3 md:p-4 
          rounded-full shadow-lg transition hover:scale-105 
          focus:outline-none focus:ring-4 focus:ring-blue-300 animate-bounce"
@@ -1233,7 +1234,7 @@ body {
           <span>December 12, 2024</span>
         </div>
         <div class="flex items-center gap-1">
-          <i data-feather="cpu"></i>
+          <i data-lucide="cpu" class="w-4 h-4"></i>
           <span>Science</span>
         </div>
       </div>
@@ -1260,11 +1261,11 @@ body {
       </h3>
       <div class="flex flex-wrap items-center gap-4 mt-3 text-sm">
         <div class="flex items-center gap-1">
-          <i data-feather="clock"></i>
+         <i data-lucide="clock" class="w-4 h-4"></i>
           <span>December 12, 2024</span>
         </div>
         <div class="flex items-center gap-1">
-          <i data-feather="book-open"></i>
+          <i data-lucide="book-open" class="w-4 h-4"></i>
           <span>Arts</span>
         </div>
       </div>
@@ -1273,7 +1274,7 @@ body {
 </section>
 <!-- Scroll To Top -->
 <a href="#top"
-   class="fixed left-3 top-1/2 transform -translate-y-1/2 bg-cyan-600 hover:bg-cyan-700 text-white p-3 rounded-full shadow-lg z-50 transition-all animate-pulse"
+   class="hidden md:block fixed left-3 top-1/2 transform -translate-y-1/2 bg-cyan-600 hover:bg-cyan-700 text-white p-3 rounded-full shadow-lg z-50 transition-all animate-pulse"
    title="Back to Top">
   <i data-feather="arrow-up" class="w-5 h-5"></i>
 </a>
@@ -1666,6 +1667,7 @@ function closeVideoModal() {
 </script>
 </body>
 </html>
+
 
 
 

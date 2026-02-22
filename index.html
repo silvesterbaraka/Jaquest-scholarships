@@ -1230,7 +1230,7 @@ body {
       </h3>
       <div class="flex flex-wrap items-center gap-4 mt-3 text-sm">
         <div class="flex items-center gap-1">
-          <i data-feather="clock"></i>
+        <i data-lucide="clock" class="w-4 h-4"></i>
           <span>December 12, 2024</span>
         </div>
         <div class="flex items-center gap-1">
@@ -1276,7 +1276,7 @@ body {
 <a href="#top"
    class="hidden md:block fixed left-3 top-1/2 transform -translate-y-1/2 bg-cyan-600 hover:bg-cyan-700 text-white p-3 rounded-full shadow-lg z-50 transition-all animate-pulse"
    title="Back to Top">
-  <i data-feather="arrow-up" class="w-5 h-5"></i>
+ <i data-lucide="arrow-up" class="w-5 h-5"></i>
 </a>
 
 <!-- Fixed Transparent Blue Bottom Navbar -->
@@ -1528,7 +1528,7 @@ document.addEventListener("DOMContentLoaded", function () {
    =============================== */
 const heroVideo = document.querySelector(".video-parallax video");
 
-if (heroVideo) {
+if (heroVideo && "IntersectionObserver" in window) {
   const videoObserver = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
@@ -1541,6 +1541,8 @@ if (heroVideo) {
   );
 
   videoObserver.observe(heroVideo);
+} else if (heroVideo) {
+  heroVideo.play().catch(() => {});
 }
   /* ===============================
      SWIPER (LAZY INIT)
@@ -1667,6 +1669,7 @@ function closeVideoModal() {
 </script>
 </body>
 </html>
+
 
 
 

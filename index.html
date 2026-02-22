@@ -1,9 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
   <meta name="description" content="JaQuest helps students unlock global opportunities through scholarships, admissions support, and visa assistance." />
   <meta name="keywords" content="scholarships, study abroad, visa assistance, education agency, JaQuest" />
   <meta name="author" content="JaQuest Scholarship Agency" />
@@ -20,10 +20,93 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  </head>
-<body id="top">
+ <style>
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  padding-top: 100px; /* Adjusted padding to ensure content isn't hidden by the nav bar */
+}
+.text-indigo-600 {
+  color: #fbbf24; /* Yellow color for "Global" */
+}
+.text-indigo-400 {
+  color: #fbbf24; /* Yellow color for "Dreams" */
+}
+.text-shadow-lg {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.text-shadow-md {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+#mobile-menu:not(.hidden) {
+  animation: slideright 0.4s ease-out;
+}
+.animate__fadeOut {
+  animation: fadeOut 1s forwards;
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; display: none; }
+}
+@keyframes slideLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.parallax {
+  transform: translateY(var(--scroll, 0px));
+  transition: transform 0.2s ease-out;
+}
+.video-parallax {
+  transform: scale(var(--scale, 1));
+  transition: transform 0.2s ease-out;
+}
+.globe-icon {
+  animation: bounce 2s ease-in-out infinite;
+}
+.testimonial-slider {
+  will-change: transform;
+}
+@keyframes slideright {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.gradient-text {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  /* Use vendor prefixes first, then the standard property last for best compatibility and to avoid warnings */
+  -webkit-background-clip: text;      /* For Chrome, Safari, Edge */
+  background-clip: text;              /* Standard property for future support */
+  color: transparent;                 /* Fallback for browsers that don't support background-clip:text */
+  -webkit-text-fill-color: transparent; /* For Chrome, Safari, Edge */
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+.service-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #3b82f6;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+.service-link:hover {
+  color: #06b6d4;
+}
+.rounded-custom {
+  border-radius: 100px 0 100px 0;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+    }
+</style>
 <!-- Navbar -->
 <nav class="fixed top-0 left-0 w-full bg-blue-600 text-white shadow-md z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,8 +144,24 @@
     </div>
   </div>
 </nav>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.getElementById('menu-button');
+    const closeBtn = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+      });
+    }
+    if (closeBtn && mobileMenu) {
+      closeBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    }
+  });
+</script>
 <!-- Hero Section -->
- <main>
 <section class="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden text-white">
   <div class="absolute inset-0 z-0 video-parallax">
     <video autoplay muted loop playsinline class="w-full h-full object-cover">
@@ -94,6 +193,26 @@
     <a href="#about">↓</a>
   </div>
 </section>
+<script>
+  AOS.init({
+    duration: 1400,
+    easing: 'ease-in-out-back',
+    once: true,
+    mirror: false,
+    offset: 100,
+  });
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    document.querySelectorAll('.parallax').forEach(el => {
+      el.style.setProperty('--scroll', `${scrollY * -0.2}px`);
+    });
+    const video = document.querySelector('.video-parallax');
+    if (video) {
+      const scaleValue = 1 + scrollY * 0.0005;
+      video.style.setProperty('--scale', scaleValue);
+    }
+  });
+</script>
 <!-- Hero Section -->
 <section class="p-6 pt-10 bg-white" data-aos="fade-up" data-aos-duration="1200">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
@@ -105,10 +224,10 @@
         </svg>
         Welcome to JaQuest Scholarships Education Consultancy
       </div>
-      <h2 class="text-4xl font-bold leading-tight sm:text-5xl">
-  Experience Elite Learning from <br>
-  Globally <span class="text-yellow-500">Ranked</span> Universities.
-</h2>
+      <h1 class="text-4xl font-bold leading-tight sm:text-5xl" data-aos="fade-up" data-aos-delay="300">
+        Experience Elite Learning from <br />
+        Globally <span class="text-yellow-500">Ranked</span> Universities.
+      </h1>
       <div class="flex justify-center items-center gap-4 flex-wrap" data-aos="zoom-in" data-aos-delay="400">
         <a href="form.html">
           <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3 rounded-full">
@@ -210,6 +329,162 @@
     </div>
   </div>
 </section>
+
+  <section style="font-family: Arial, sans-serif; background: #fff; padding: 2rem;">
+<style>
+  .jaquest-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .jaquest-left,
+  .jaquest-right {
+    flex: 1 1 300px;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .jaquest-images {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .jaquest-image {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .jaquest-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .jaquest-image-left {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .jaquest-image-right {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .jaquest-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+  }
+
+  .jaquest-play:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .jaquest-support {
+    background-color: #00a79d;
+    color: white;
+    padding: 1rem;
+    border-radius: 0 50px 50px 0;
+    max-width: 550px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .support-icon {
+    background: white;
+    color: #00a79d;
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .support-text {
+    line-height: 1.2;
+  }
+
+  .support-text strong {
+    font-size: 1.2rem;
+  }
+
+  .jaquest-right h2 {
+    font-size: 2rem;
+    color: #222;
+  }
+
+  .jaquest-right p {
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .jaquest-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .jaquest-stat {
+    text-align: center;
+  }
+
+  .jaquest-stat .number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00a79d;
+  }
+
+  @media (max-width: 768px) {
+    .jaquest-images {
+      flex-direction: column;
+    }
+
+    .jaquest-image-left,
+    .jaquest-image-right {
+      border-radius: 15px;
+    }
+
+    .jaquest-stats {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .jaquest-left,
+    .jaquest-right {
+      max-width: 100%;
+    }
+  }
+</style>
+
 <div class="jaquest-container">
   <!-- Left Column -->
   <div class="jaquest-left">
@@ -257,19 +532,59 @@
     </div>
   </div>
 </div>
+</section>
 
 <!-- Button -->
-<button type="button"
-  class="mt-6 inline-block bg-indigo-600 text-white font-semibold px-6 py-3 rounded-full">
+<a href="javascript:void(0)" onclick="startJourney()" 
+  class="mt-6 inline-block bg-indigo-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-indigo-700 transition duration-300">
   Start Your Journey
-</button>
+</a>
 <!-- Loading Screen -->
 <div id="loadingScreen" class="fixed inset-0 bg-white bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-6 hidden transition-opacity duration-300">
   <img src="jaquestlogo.jpg" alt="JAQuest Logo" class="w-24 h-24 object-contain animate-spin-slow" />
   <div class="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
   <p class="text-gray-700 text-lg font-medium">Preparing your journey...</p>
 </div>
+<!-- Script -->
+<script>
+function startJourney() {
+  const loader = document.getElementById("loadingScreen");
+  loader.classList.remove("hidden");
+  loader.classList.add("opacity-0");
+  setTimeout(() => loader.classList.remove("opacity-0"), 50);
+  setTimeout(() => {
+    window.location.href = "form.html";
+  }, 1200);
+}
+</script>
+<style>
+.animate-spin-slow {
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+</style>
+<!-- Video Play Button Script -->
+<script>
+  // Only run if playBtn exists on the page
+  const playBtn = document.getElementById("playBtn");
+  if (playBtn) {
+    playBtn.addEventListener("click", function () {
+      const video = document.getElementById("videoElement");
+      const thumbnail = document.getElementById("videoThumb");
+      this.style.display = "none";
+      if (thumbnail) thumbnail.style.display = "none";
+      if (video) {
+        video.classList.remove("hidden");
+        video.play();
+      }
+    });
+  }
+</script>
 <!-- Swiper CSS (should be in <head>, but left here if needed for context) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 <section class="py-16 bg-gray-50" id="testimonials" data-aos="fade-up" data-aos-duration="1200">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">What Our Students Say</h2>
@@ -519,422 +834,473 @@
     </div>
   </div>
 </section>
-<section>
-   <!-- Action Cards Section -->
-<section class="py-20 bg-gradient-to-r from-teal-900 to-gray-900 text-white">
+<section class="bg-gradient-to-r from-teal-900 to-gray-900 py-20 px-4 text-white font-poppins">
   <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 text-center">
-
-    <!-- Card 1 -->
+    <!-- Card 1: Book Consultation -->
     <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
       <div class="relative mt-12 flex flex-col items-center">
-
+        <!-- Icon -->
         <div class="absolute -top-8 z-20 bg-teal-500 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-xl">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 text-white"
-               fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M8 7V3M16 7V3M3 11h18M5 21h14a2 2 0 002-2v-7H3v7a2 2 0 002 2z"/>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3M16 7V3M3 11h18M5 21h14a2 2 0 002-2v-7H3v7a2 2 0 002 2z" />
           </svg>
         </div>
-
+        <!-- Circle Image -->
         <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden shadow-2xl border-4 border-teal-500">
-          <img src="student3.jpg" alt="Consultation" class="w-full h-full object-cover">
+          <img src="student3.jpg" alt="Consultation" class="w-full h-full object-cover" />
         </div>
       </div>
-
       <h3 class="mt-16 text-lg sm:text-xl font-semibold">Book Free Consultation</h3>
-      <p class="mt-3 text-sm sm:text-base text-gray-300 px-4 sm:px-6">
-        Discuss your study goals, destinations, and financial plans.
-      </p>
+      <p class="mt-3 text-sm sm:text-base text-gray-300 px-4 sm:px-6">Discuss your study goals, destinations, and financial plans.</p>
     </div>
-    <!-- Card 2 -->
+    <!-- Card 2: Make Payment -->
     <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
       <div class="relative mt-12 flex flex-col items-center">
-
+        <!-- Icon -->
         <div class="absolute -top-8 z-20 bg-teal-500 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-xl">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 text-white"
-               fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <rect x="2" y="5" width="20" height="14" rx="2" ry="2"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="2" y1="10" x2="22" y2="10"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <rect x="2" y="5" width="20" height="14" rx="2" ry="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="2" y1="10" x2="22" y2="10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-
+        <!-- Circle Image -->
         <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden shadow-2xl border-4 border-teal-500">
-          <img src="student2.jpg" alt="Payment" class="w-full h-full object-cover">
+          <img src="student2.jpg" alt="Payment" class="w-full h-full object-cover" />
         </div>
       </div>
-
       <h3 class="mt-16 text-lg sm:text-xl font-semibold">Make Easy Payment</h3>
-      <p class="mt-3 text-sm sm:text-base text-gray-300 px-4 sm:px-6">
-        Flexible and convenient payment options to simplify your journey.
-      </p>
+      <p class="mt-3 text-sm sm:text-base text-gray-300 px-4 sm:px-6">Flexible and convenient payment options to simplify your journey.</p>
     </div>
- <!-- Card 3 -->
+    <!-- Card 3: Schedule Webinar -->
     <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
       <div class="relative mt-12 flex flex-col items-center">
-
+        <!-- Icon -->
         <div class="absolute -top-8 z-20 bg-teal-500 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-xl">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 text-white"
-               fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M15 10l4.553 2.276A2 2 0 0121 14.118v.764a2 2 0 01-1.447 1.894L15 19v-9z"/>
-            <rect x="3" y="5" width="12" height="14" rx="2" ry="2"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553 2.276A2 2 0 0121 14.118v.764a2 2 0 01-1.447 1.894L15 19v-9z" />
+            <rect x="3" y="5" width="12" height="14" rx="2" ry="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-
+        <!-- Circle Image -->
         <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden shadow-2xl border-4 border-teal-500">
-          <img src="student1.jpg" alt="Webinar" class="w-full h-full object-cover">
+          <img src="student1.jpg" alt="Webinar" class="w-full h-full object-cover" />
         </div>
       </div>
-
-      <h3 class="mt-16 text-lg sm:text-xl font-semibold">Schedule One-on-One Webinar</h3>
-      <p class="mt-3 text-sm sm:text-base text-gray-300 px-4 sm:px-6">
-        Chat with university experts to clear doubts and build confidence.
-      </p>
+      <h3 class="mt-16 text-lg sm:text-xl font-semibold">Schedule one on one Webinar</h3>
+      <p class="mt-3 text-sm sm:text-base text-gray-300 px-4 sm:px-6">Chat with university experts to clear doubts and build confidence.</p>
     </div>
-
   </div>
 </section>
-
-
-
-</main>
-<!-- =======================
-     FOOTER
-======================== -->
-<footer class="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-gray-200 pt-16">
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Top Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-blue-700">
-
-      <!-- Brand -->
-      <div data-aos="fade-up">
-        <div class="flex items-center gap-3 mb-4">
-          <img src="jaquestlogo.jpg" alt="JaQuest Logo" class="w-12 h-12 rounded-full">
-          <h3 class="text-2xl font-bold text-white">JaQuest</h3>
-        </div>
-        <p class="text-sm leading-relaxed text-gray-300">
-          JaQuest Scholarships Agency helps students unlock global education opportunities
-          through scholarships, admissions support, and visa guidance.
-        </p>
+<!-- Mission Statement Section -->
+<section class="bg-white py-20 px-6 md:px-16" data-aos="fade-up">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+    <!-- Updated image layout -->
+    <div class="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+      <!-- Large image on the left -->
+      <div class="lg:col-span-2">
+        <img src="student.jpg" class="rounded-custom w-full h-full object-cover" alt="Students Group" />
       </div>
-
-      <!-- Quick Links -->
-      <div data-aos="fade-up" data-aos-delay="100">
-        <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="index.html" class="hover:text-yellow-400 transition">Home</a></li>
-          <li><a href="services.html" class="hover:text-yellow-400 transition">Our Services</a></li>
-          <li><a href="courses.html" class="hover:text-yellow-400 transition">Courses</a></li>
-          <li><a href="blog.html" class="hover:text-yellow-400 transition">News & Blog</a></li>
-          <li><a href="contact.html" class="hover:text-yellow-400 transition">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <!-- Services -->
-      <div data-aos="fade-up" data-aos-delay="200">
-        <h4 class="text-lg font-semibold text-white mb-4">What We Do</h4>
-        <ul class="space-y-2 text-sm">
-          <li>Scholarship Matching</li>
-          <li>University Admissions</li>
-          <li>Visa & Application Support</li>
-          <li>Career Mentorship</li>
-          <li>Travel & Airport Pickup</li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div data-aos="fade-up" data-aos-delay="300">
-        <h4 class="text-lg font-semibold text-white mb-4">Contact Us</h4>
-
-        <ul class="space-y-3 text-sm">
-          <li class="flex items-center gap-2">
-            <i data-lucide="phone" class="w-4 h-4 text-yellow-400"></i>
-            <span>+256 777 617 256</span>
-          </li>
-          <li class="flex items-center gap-2">
-            <i data-lucide="mail" class="w-4 h-4 text-yellow-400"></i>
-            <span>info@jaquest.org</span>
-          </li>
-          <li class="flex items-center gap-2">
-            <i data-lucide="map-pin" class="w-4 h-4 text-yellow-400"></i>
-            <span>India • Africa • Global</span>
-          </li>
-        </ul>
-
-        <!-- Social Icons -->
-        <div class="flex gap-4 mt-5">
-          <a href="https://wa.me/0000000000" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"
-             class="hover:text-yellow-400 transition">
-            <i data-lucide="message-circle"></i>
-          </a>
-
-          <a href="https://www.facebook.com/jaquest.official" aria-label="Facebook" target="_blank" rel="noopener noreferrer"
-             class="hover:text-yellow-400 transition">
-            <i data-lucide="facebook"></i>
-          </a>
-
-          <a href="https://www.instagram.com/jaquest.global" aria-label="Instagram" target="_blank" rel="noopener noreferrer"
-             class="hover:text-yellow-400 transition">
-            <i data-lucide="instagram"></i>
-          </a>
-
-          <a href="https://x.com/jaquest_global" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer"
-             class="hover:text-yellow-400 transition">
-            <i data-lucide="twitter"></i>
-          </a>
-
-          <a href="https://www.linkedin.com/company/jaquest-global" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"
-             class="hover:text-yellow-400 transition">
-            <i data-lucide="linkedin"></i>
-          </a>
-        </div>
-      </div> <!-- END Contact -->
-
-    </div> <!-- END Grid -->
-
-    <!-- Bottom Bar -->
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4 py-6 text-sm text-gray-400">
-      <p>
-        © <span id="year"></span> JaQuest Scholarship Agency. All rights reserved.
-      </p>
-      <div class="flex gap-6">
-        <a href="#" class="hover:text-yellow-400 transition">Privacy Policy</a>
-        <a href="#" class="hover:text-yellow-400 transition">Terms of Service</a>
+      <!-- Two vertical images on the right -->
+      <div class="flex flex-col gap-6 justify-between lg:col-span-1">
+        <img src="student1.jpg" class="rounded-custom w-full h-1/2 object-cover" alt="Students Learning" />
+        <img src="student2.jpg" class="rounded-custom w-full h-1/2 object-cover" alt="Students Collaborating" />
       </div>
     </div>
-
+    <div class="flex-1 mt-10 lg:mt-0">
+      <span class="inline-flex items-center px-4 py-1 text-sm rounded-full bg-cyan-800 text-white mb-4">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 1010 10A10 10 0 0012 2z" />
+        </svg>
+        What is our concern
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-snug">We Care About Your Life For Better Future</h2>
+      <p class="text-gray-700 mb-8">This includes offering personalized feedback, fostering a sense of community through discussion forums and group projects, and providing continuous support to address challenges and improve our students' standards.</p>
+      <div class="grid gap-6">
+        <div class="flex gap-4 items-start bg-gray-100 rounded-lg p-5">
+          <div class="bg-gray-200 p-3 rounded-full">
+            <svg class="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z M2.458 12C3.732 7.943 7.522 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-1">Mastering students interests</h4>
+            <p class="text-gray-600">We help students identify their strengths and career goals, guiding them toward the best academic and scholarship opportunities for success.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start bg-gray-100 rounded-lg p-5">
+          <div class="bg-gray-200 p-3 rounded-full">
+            <svg class="w-6 h-6 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-1">Course mapping</h4>
+            <p class="text-gray-600">We help you select the ideal course based on your academic background, career goals, and industry trends, ensuring alignment with your future path.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</footer>
+</section>
+<!-- AOS Library (for animations) -->
 <script>
-/* =====================================================
-   DOM READY
-===================================================== */
-document.addEventListener("DOMContentLoaded", function () {
-
-  /* ===============================
-     FOOTER YEAR
-     =============================== */
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  /* ===============================
-     MOBILE MENU
-     =============================== */
-  const menuBtn = document.getElementById("menu-button");
-  const closeBtn = document.getElementById("close-menu");
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.remove("hidden");
-    });
+  AOS.init({ duration: 1000, once: true });
+</script>
+<!-- Chat Button -->
+<button onclick="toggleChat()" 
+  class="fixed top-1/2 right-4 transform -translate-y-1/2 z-[9999]
+         bg-blue-600 hover:bg-blue-700 text-white p-3 md:p-4 
+         rounded-full shadow-lg transition hover:scale-105 
+         focus:outline-none focus:ring-4 focus:ring-blue-300 animate-bounce"
+  aria-label="Open Chat">
+  <i data-lucide="message-circle" class="w-5 h-5 md:w-6 md:h-6"></i>
+</button>
+<!-- Chatbot Container -->
+<div id="chatContainer" 
+  class="fixed top-1/2 right-20 transform -translate-y-1/2 z-[9999]
+         w-full max-w-xs md:max-w-sm lg:max-w-md 
+         bg-white rounded-xl shadow-lg overflow-hidden 
+         transition-transform transition-opacity duration-500 ease-in-out
+         translate-x-full opacity-0 pointer-events-none">
+  <div class="flex items-center justify-between p-4 bg-blue-600 text-white">
+    <span class="font-semibold text-sm md:text-base">JaQuest Chat Assistant</span>
+    <button type="button" onclick="toggleChat()" class="hover:text-gray-200 focus:outline-none">
+      <span class="sr-only">Close chat</span>
+      <i data-lucide="x" class="w-4 h-4 md:w-5 md:h-5" aria-hidden="true"></i>
+    </button>
+  </div>
+  <iframe src="https://example.com/chatbot" title="Chatbot" 
+    class="w-full h-80 md:h-96 border-0"></iframe>
+</div>
+<!-- Latest News Section -->
+<section class="text-center pt-16 pb-8 px-4" id="news-updates">
+  <h2
+    class="text-4xl font-bold mb-2"
+    data-aos="fade-down"
+    data-aos-duration="1000"
+  >
+    Latest News Updates
+  </h2>
+</section>
+<section
+  class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-16 pb-20"
+  data-aos="fade-up"
+  data-aos-duration="1200">
+  <!-- Card 1 -->
+  <div
+    class="relative overflow-hidden rounded-2xl shadow-lg group transition-all duration-300">
+    <img
+      src="student3.jpg"
+      alt="Student Achievement"
+      class="w-full h-96 sm:h-[26rem] object-cover"/>
+    <div
+      class="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 group-hover:bg-opacity-50"
+    ></div>
+    <div class="absolute top-5 left-5">
+      <span
+        class="bg-white text-cyan-600 font-semibold px-4 py-2 rounded-full text-sm"
+        >DEVELOPMENT</span>
+    </div>
+    <div class="absolute bottom-5 left-5 right-5 text-white">
+      <h3 class="text-2xl font-semibold leading-snug">
+        Student Achievement Best Practice for Schools
+      </h3>
+      <div class="flex flex-wrap items-center gap-4 mt-3 text-sm">
+        <div class="flex items-center gap-1">
+          <i data-feather="clock"></i>
+          <span>December 12, 2024</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <i data-feather="cpu"></i>
+          <span>Science</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card 2 -->
+  <div
+    class="relative overflow-hidden rounded-2xl shadow-lg group transition-all duration-300">
+    <img
+      src="student2.jpg"
+      alt="Arts Integration"
+      class="w-full h-96 sm:h-[26rem] object-cover"/>
+    <div
+      class="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 group-hover:bg-opacity-50"
+    ></div>
+    <div class="absolute top-5 left-5">
+      <span
+        class="bg-white text-cyan-600 font-semibold px-4 py-2 rounded-full text-sm"
+        >DEVELOPMENT</span>
+    </div>
+    <div class="absolute bottom-5 left-5 right-5 text-white">
+      <h3 class="text-2xl font-semibold leading-snug">
+        The Importance of Integrating Arts into Education
+      </h3>
+      <div class="flex flex-wrap items-center gap-4 mt-3 text-sm">
+        <div class="flex items-center gap-1">
+          <i data-feather="clock"></i>
+          <span>December 12, 2024</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <i data-feather="book-open"></i>
+          <span>Arts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Scroll to Top Button - Left Center -->
+<a href="#top"
+  class="fixed left-3 top-1/2 transform -translate-y-1/2 bg-cyan-600 hover:bg-cyan-700 text-white p-3 rounded-full shadow-lg z-50 transition-all animate-pulse"
+  title="Back to Top">
+  <i data-feather="arrow-up" class="w-5 h-5"></i>
+</a>
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+  // Only run AOS and feather.replace once
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.AOS) AOS.init({ duration: 1000, once: true });
+    if (window.feather) feather.replace();
+  });
+  function toggleChat() {
+    const chat = document.getElementById('chatContainer');
+    if (chat.classList.contains('translate-x-full')) {
+      chat.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+      chat.classList.add('translate-x-0', 'opacity-100', 'pointer-events-auto');
+    } else {
+      chat.classList.remove('translate-x-0', 'opacity-100', 'pointer-events-auto');
+      chat.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+    }
   }
-
-  if (closeBtn && mobileMenu) {
-    closeBtn.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-    });
-  }
-
-  /* ===============================
-     ICON LIBRARIES
-     =============================== */
-  if (window.feather) feather.replace();
-  if (window.lucide) lucide.createIcons();
-
-  /* ===============================
-     AOS – SMOOTH & STABLE INIT
-     =============================== */
-  if (window.AOS) {
-    AOS.init({
-      duration: 1200,
-      easing: "ease-out-cubic",   // smoother than default
-      once: true,
-      mirror: false,
-      offset: 120,
-      anchorPlacement: "top-bottom",
-    });
-
-    // Refresh after images & layout fully load
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        AOS.refreshHard();
-      }, 400);
-    });
-  }
-
-  /* ===============================
-     PARALLAX SCROLL (OPTIMIZED)
-     =============================== */
-  let ticking = false;
-
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const scrollY = window.scrollY;
-
-        document.querySelectorAll(".parallax").forEach(el => {
-          el.style.setProperty("--scroll", `${scrollY * -0.2}px`);
-        });
-
-        const video = document.querySelector(".video-parallax");
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  // Only run lucide.createIcons if lucide is loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.lucide) lucide.createIcons();
+  });
+</script>
+<script>
+  // Only run if playBtn exists on the page
+  document.addEventListener("DOMContentLoaded", function () {
+    const playBtn = document.getElementById("playBtn");
+    if (playBtn) {
+      playBtn.addEventListener("click", function () {
+        const video = document.getElementById("videoElement");
+        const thumbnail = document.getElementById("videoThumb");
+        this.style.display = "none";
+        if (thumbnail) thumbnail.style.display = "none";
         if (video) {
-          video.style.setProperty("--scale", 1 + scrollY * 0.0005);
+          video.classList.remove("hidden");
+          video.play();
         }
-
-        ticking = false;
       });
-      ticking = true;
     }
   });
-
-  /* ===============================
-     HERO VIDEO – SMART PLAY
-     =============================== */
-  const heroVideo = document.querySelector(".video-parallax video");
-
-  if (heroVideo && "IntersectionObserver" in window) {
-    const videoObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          heroVideo.play().catch(() => {});
+</script>
+<!-- Fixed Transparent Blue Bottom Navbar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-blue-900 bg-opacity-70 backdrop-blur-md z-50">
+  <div class="flex justify-around items-center py-3 text-white text-xs sm:text-sm">
+    <a href="index.html" class="flex flex-col items-center">
+      <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10.707 1.707a1 1 0 00-1.414 0L1 10h3v7a1 1 0 001 1h4v-5h2v5h4a1 1 0 001-1v-7h3L10.707 1.707z" />
+      </svg>
+      <span>Home</span>
+    </a>
+    <a href="services.html" class="flex flex-col items-center">
+      <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 2a2 2 0 012 2v1h-4V4a2 2 0 012-2zM4 7h12v10H4V7zm6 3a1 1 0 00-.993.883L9 11v2a1 1 0 001.993.117L11 13v-2a1 1 0 00-1-1z" />
+      </svg>
+      <span>Services</span>
+    </a>
+    <a href="plans.html" class="flex flex-col items-center">
+      <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M6 3a1 1 0 000 2h1v11a1 1 0 002 0V5h1a1 1 0 000-2H6z" />
+      </svg>
+      <span>Plans</span>
+    </a>
+    <a href="blog.html" class="flex flex-col items-center">
+      <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M3 3a1 1 0 011-1h12a1 1 0 011 1v16l-7-4-7 4V3z" />
+      </svg>
+      <span>Blog</span>
+    </a>
+    <a href="contact.html" class="flex flex-col items-center">
+      <svg class="w-6 h-6 mb-1" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M18 13V7a1 1 0 00-1-1h-3.586l-2-2H8.586l-2 2H3a1 1 0 00-1 1v6h16zM4 14h12v2H4v-2z" />
+      </svg>
+      <span>Contact</span>
+    </a>
+  </div>
+</nav>
+<!-- Video Popup Modal -->
+<div id="videoModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-500">
+  <div id="modalContent" class="bg-white rounded-2xl overflow-hidden max-w-2xl w-full relative shadow-2xl transform scale-90 opacity-0 transition-all duration-500">
+    <!-- Close Button -->
+    <button type="button" onclick="closeVideoModal()" class="absolute top-2 right-2 bg-gray-100 rounded-full p-2 hover:bg-gray-200 z-10" aria-label="Close video modal">
+      <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 
+        1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 
+        1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 
+        10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    <!-- ...rest of modal... -->
+    <!-- Video tag instead of iframe -->
+    <div class="aspect-w-16 aspect-h-9">
+      <video id="videoPlayer" src="deshbaghat.mp4" controls class="w-full h-full rounded-b-2xl"></video>
+    </div>
+  </div>
+</div>
+<script>
+  function openVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const modalContent = document.getElementById('modalContent');
+    const video = document.getElementById('videoPlayer');
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100', 'pointer-events-auto');
+    // Fade-in effect
+    setTimeout(() => {
+      modalContent.classList.remove('scale-90', 'opacity-0');
+      modalContent.classList.add('scale-100', 'opacity-100');
+    }, 100);
+    video.currentTime = 0; // Start from beginning
+    video.play(); // Auto play
+  }
+  function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const modalContent = document.getElementById('modalContent');
+    const video = document.getElementById('videoPlayer');
+    video.pause();
+    video.currentTime = 0; // Reset video
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    modalContent.classList.add('scale-90', 'opacity-0');
+    setTimeout(() => {
+      modal.classList.remove('opacity-100', 'pointer-events-auto');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }, 300);
+  }
+</script>
+<script>
+  // Testimonial slider navigation (safe for missing elements)
+  document.addEventListener('DOMContentLoaded', function () {
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const testimonials = document.querySelector('.testimonial-slider');
+    const testimonialItems = document.querySelectorAll('.testimonial');
+    if (prevBtn && nextBtn && testimonials && testimonialItems.length > 0) {
+      const totalSlides = testimonialItems.length;
+      let currentIndex = 0;
+      function updateSlider() {
+        const offset = -currentIndex * 100;
+        testimonials.style.transition = 'transform 0.5s ease';
+        testimonials.style.transform = `translateX(${offset}%)`;
+      }
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
         } else {
-          heroVideo.pause();
+          currentIndex = totalSlides - 1;
         }
-      },
-      { threshold: 0.3 }
-    );
-    videoObserver.observe(heroVideo);
-  } else if (heroVideo) {
-    heroVideo.play().catch(() => {});
-  }
-
-  /* ===============================
-     SWIPER (SAFE INIT)
-     =============================== */
-  if (window.Swiper && document.querySelector(".mySwiper")) {
-    new Swiper(".mySwiper", {
-      loop: true,
-      grabCursor: true,
-      spaceBetween: 30,
-      centeredSlides: true,
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints: {
-        320: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      },
-    });
-  }
-
-  /* ===============================
-     COUNT-UP (INTERSECTION SAFE)
-     =============================== */
-  const countEl = document.getElementById("animated-count");
-  if (countEl) {
+        updateSlider();
+      });
+      nextBtn.addEventListener('click', () => {
+        if (currentIndex < totalSlides - 1) {
+          currentIndex++;
+        } else {
+          currentIndex = 0;
+        }
+        updateSlider();
+      });
+      // For Touch Devices (Swiper)
+      let touchStart = 0;
+      testimonials.addEventListener('touchstart', (e) => {
+        touchStart = e.touches[0].clientX;
+      });
+      testimonials.addEventListener('touchend', (e) => {
+        let touchEnd = e.changedTouches[0].clientX;
+        if (touchStart - touchEnd > 50) {
+          nextBtn.click();
+        } else if (touchEnd - touchStart > 50) {
+          prevBtn.click();
+        }
+      });
+    }
+  });
+</script>
+<script>
+  // Swiper initialization (safe for missing Swiper)
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.Swiper) {
+      var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        grabCursor: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+          },
+          640: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    }
+  });
+</script>
+<script>
+  // Animated count-up (safe for missing element)
+  document.addEventListener('DOMContentLoaded', function () {
+    const countEl = document.getElementById('animated-count');
     const start = 700;
     const end = 755;
     const duration = 2000;
-    const step = Math.max(duration / (end - start), 20);
-    let timer;
-
+    const step = Math.max(Math.floor(duration / (end - start)), 20);
+    let interval;
     function animateCount() {
-      let value = start;
-      clearInterval(timer);
-      timer = setInterval(() => {
-        value++;
-        countEl.textContent = value + "+";
-        if (value >= end) clearInterval(timer);
+      let current = start;
+      clearInterval(interval);
+      interval = setInterval(() => {
+        current++;
+        countEl.textContent = current + '+';
+        if (current >= end) {
+          clearInterval(interval);
+        }
       }, step);
     }
-
-    new IntersectionObserver((entries, obs) => {
-      if (entries[0].isIntersecting) {
-        animateCount();
-        obs.disconnect();
-      }
-    }, { threshold: 0.5 }).observe(countEl);
-  }
-
-});
-
-/* =====================================================
-   GLOBAL FUNCTIONS (USED BY HTML)
-===================================================== */
-
-function toggleChat() {
-  const chat = document.getElementById("chatContainer");
-  if (!chat) return;
-
-  chat.classList.toggle("translate-x-full");
-  chat.classList.toggle("opacity-0");
-  chat.classList.toggle("pointer-events-none");
-  chat.classList.toggle("translate-x-0");
-  chat.classList.toggle("opacity-100");
-  chat.classList.toggle("pointer-events-auto");
-}
-
-function startJourney() {
-  const loader = document.getElementById("loadingScreen");
-  if (!loader) return;
-
-  loader.classList.remove("hidden");
-  loader.classList.add("opacity-0");
-
-  setTimeout(() => loader.classList.remove("opacity-0"), 50);
-  setTimeout(() => location.href = "form.html", 1200);
-}
-
-function openVideoModal() {
-  const modal = document.getElementById("videoModal");
-  const content = document.getElementById("modalContent");
-  const video = document.getElementById("videoPlayer");
-  if (!modal || !content || !video) return;
-
-  modal.classList.remove("opacity-0", "pointer-events-none");
-  modal.classList.add("opacity-100", "pointer-events-auto");
-
-  setTimeout(() => {
-    content.classList.remove("scale-90", "opacity-0");
-    content.classList.add("scale-100", "opacity-100");
-  }, 100);
-
-  video.currentTime = 0;
-  video.play().catch(() => {});
-}
-
-function closeVideoModal() {
-  const modal = document.getElementById("videoModal");
-  const content = document.getElementById("modalContent");
-  const video = document.getElementById("videoPlayer");
-  if (!modal || !content || !video) return;
-
-  video.pause();
-  video.currentTime = 0;
-
-  content.classList.remove("scale-100", "opacity-100");
-  content.classList.add("scale-90", "opacity-0");
-
-  setTimeout(() => {
-    modal.classList.remove("opacity-100", "pointer-events-auto");
-    modal.classList.add("opacity-0", "pointer-events-none");
-  }, 300);
-}
+    if (countEl) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCount();
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(countEl);
+    }
+  });
 </script>
 </body>
 </html>
+
+

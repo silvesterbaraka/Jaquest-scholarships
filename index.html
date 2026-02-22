@@ -1643,8 +1643,8 @@ function openVideoModal() {
     content.classList.add("scale-100", "opacity-100");
   }, 100);
 
-  video.load();
-  video.play();
+ video.currentTime = 0;
+video.play().catch(() => {});
 }
 
 function closeVideoModal() {
@@ -1667,6 +1667,7 @@ function closeVideoModal() {
 </script>
 </body>
 </html>
+
 
 
 

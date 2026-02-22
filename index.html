@@ -42,7 +42,6 @@
 <!-- JS Libraries (DEFERRED for performance) -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
-<script src="https://unpkg.com/feather-icons" defer></script>
 <script src="https://unpkg.com/lucide@latest" defer></script>
   <!-- Custom Styles -->
   <style>
@@ -390,8 +389,16 @@ body {
   
   <!-- Background Video -->
   <div class="absolute inset-0 z-0 video-parallax">
-    <video autoplay muted loop playsinline preload="none" class="w-full h-full object-cover">
-      <source src="deshbaghat.mp4" type="video/mp4" />
+   <video
+  class="w-full h-full object-cover"
+  muted
+  loop
+  playsinline
+  preload="metadata"
+  poster="hero-poster.webp"
+  aria-hidden="true"
+>
+  <source src="deshbaghat.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-transparent"></div>
@@ -1489,7 +1496,6 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ===============================
      ICON LIBRARIES
      =============================== */
-  if (window.feather) feather.replace();
   if (window.lucide) lucide.createIcons();
 
   /* ===============================
@@ -1516,27 +1522,25 @@ document.addEventListener("DOMContentLoaded", function () {
       ticking = true;
     }
   });
+/* ===============================
+   HERO BACKGROUND VIDEO (SMART PLAY)
+   =============================== */
+const heroVideo = document.querySelector(".video-parallax video");
 
-  /* ===============================
-     INLINE HERO VIDEO (LAZY LOAD)
-     =============================== */
-  const playBtn = document.getElementById("playBtn");
-  if (playBtn) {
-    playBtn.addEventListener("click", function () {
-      const video = document.getElementById("videoElement");
-      const thumb = document.getElementById("videoThumb");
-
-      this.style.display = "none";
-      if (thumb) thumb.style.display = "none";
-
-      if (video) {
-        video.removeAttribute("preload");
-        video.classList.remove("hidden");
-        video.play();
+if (heroVideo) {
+  const videoObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        heroVideo.play().catch(() => {});
+      } else {
+        heroVideo.pause();
       }
-    });
-  }
+    },
+    { threshold: 0.3 }
+  );
 
+  videoObserver.observe(heroVideo);
+}
   /* ===============================
      SWIPER (LAZY INIT)
      =============================== */
@@ -1662,6 +1666,7 @@ function closeVideoModal() {
 </script>
 </body>
 </html>
+
 
 
 

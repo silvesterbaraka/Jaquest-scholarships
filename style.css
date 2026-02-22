@@ -1,0 +1,286 @@
+/* =====================================================
+   GLOBAL BASE
+===================================================== */
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+/* =====================================================
+   COLOR OVERRIDES (Tailwind-safe)
+===================================================== */
+.text-indigo-600,
+.text-indigo-400 {
+  color: #fbbf24;
+}
+
+/* =====================================================
+   TEXT SHADOWS
+===================================================== */
+.text-shadow-lg {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.text-shadow-md {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+#mobile-menu:not(.hidden) {
+  animation: slideRight 0.4s ease-out;
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+.animate__fadeOut {
+  animation: fadeOut 1s forwards;
+}
+
+/* Floating icons */
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+/* Character float */
+@keyframes characterFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-20px); }
+}
+.character-float {
+  animation: characterFloat 2.5s ease-in-out infinite;
+}
+
+/* Globe bounce (renamed to avoid animate.css conflicts) */
+@keyframes softBounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-30px); }
+}
+.globe-icon {
+  display: inline-block;
+  will-change: transform;
+  animation: softBounce 2s ease-in-out infinite;
+}
+
+/* Spinner */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin 2s linear infinite;
+}
+
+/* =====================================================
+   PARALLAX
+===================================================== */
+.parallax {
+  transform: translateY(var(--scroll, 0px));
+  transition: transform 0.2s ease-out;
+}
+.video-parallax {
+  transform: scale(var(--scale, 1));
+  transition: transform 0.2s ease-out;
+}
+
+/* =====================================================
+   TEXT EFFECTS
+===================================================== */
+.gradient-text {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =====================================================
+   SERVICE CARDS
+===================================================== */
+.service-card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.service-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #3b82f6;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+.service-link:hover {
+  color: #06b6d4;
+}
+
+/* =====================================================
+   IMAGE SHAPES
+===================================================== */
+.rounded-custom {
+  border-radius: 100px 0 100px 0;
+}
+
+/* =====================================================
+   JAQUEST CUSTOM SECTION
+===================================================== */
+.jaquest-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.jaquest-left,
+.jaquest-right {
+  flex: 1 1 300px;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.jaquest-images {
+  display: flex;
+  gap: 1rem;
+}
+
+.jaquest-image {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.jaquest-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.jaquest-image-left {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.jaquest-image-right {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.jaquest-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+.jaquest-play:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.jaquest-support {
+  background-color: #00a79d;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0 50px 50px 0;
+  max-width: 550px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.support-icon {
+  background: #fff;
+  color: #00a79d;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.support-text {
+  line-height: 1.2;
+}
+.support-text strong {
+  font-size: 1.2rem;
+}
+
+.jaquest-right h2 {
+  font-size: 2rem;
+  color: #222;
+}
+.jaquest-right p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.jaquest-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.jaquest-stat {
+  text-align: center;
+}
+.jaquest-stat .number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00a79d;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+  .jaquest-images {
+    flex-direction: column;
+  }
+
+  .jaquest-image-left,
+  .jaquest-image-right {
+    border-radius: 15px;
+  }
+
+  .jaquest-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .jaquest-left,
+  .jaquest-right {
+    max-width: 100%;
+  }
+}

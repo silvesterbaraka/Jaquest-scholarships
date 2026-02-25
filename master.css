@@ -8,7 +8,6 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  padding-top: 100px; /* Navbar offset */
 }
 
 /* =====================================================
@@ -22,11 +21,11 @@ body {
    TEXT EFFECTS
 ===================================================== */
 .text-shadow-lg {
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 5px rgba(0,0,0,.3);
 }
 
 .text-shadow-md {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 3px rgba(0,0,0,.2);
 }
 
 .gradient-text {
@@ -41,26 +40,19 @@ body {
    MOBILE MENU ANIMATION
 ===================================================== */
 #mobile-menu:not(.hidden) {
-  animation: slideRight 0.4s ease-out both;
+  animation: slideRight .4s ease-out both;
 }
 
 @keyframes slideRight {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
 }
 
 /* =====================================================
-   FADE OUT (SAFE UTILITY)
+   SAFE FADE OUT
 ===================================================== */
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  to { opacity: 0; }
 }
 
 .animate__fadeOut {
@@ -68,12 +60,12 @@ body {
 }
 
 /* =====================================================
-   PARALLAX SUPPORT (GPU SAFE)
+   PARALLAX (GPU SAFE)
 ===================================================== */
 .parallax,
 .video-parallax {
   will-change: transform;
-  transition: transform 0.25s ease-out;
+  transition: transform .25s ease-out;
 }
 
 /* =====================================================
@@ -85,20 +77,20 @@ body {
 }
 
 @keyframes globeBounce {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-20px); }
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-20px); }
 }
 
 /* =====================================================
    SERVICE CARDS
 ===================================================== */
 .service-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 30px rgba(0,0,0,.2);
 }
 
 .service-link {
@@ -106,7 +98,7 @@ body {
   margin-top: 1rem;
   color: #3b82f6;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: color .3s ease;
 }
 
 .service-link:hover {
@@ -127,9 +119,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: center;
   max-width: 1200px;
   margin: auto;
+  justify-content: center;
 }
 
 .jaquest-left,
@@ -140,10 +132,6 @@ body {
   flex-direction: column;
   gap: 1rem;
 }
-
-/* Desktop spacing rhythm */
-.jaquest-left  { padding-right: 2rem; }
-.jaquest-right { padding-left: 2rem; }
 
 /* =====================================================
    IMAGE LAYOUT
@@ -157,37 +145,34 @@ body {
   position: relative;
   flex: 1;
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .jaquest-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
-
-.jaquest-image-left  { border-radius: 30px 0 0 30px; }
-.jaquest-image-right { border-radius: 0 30px 30px 0; }
 
 /* Play Button */
 .jaquest-play {
   position: absolute;
-  inset: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   width: 60px;
   height: 60px;
   background: #fff;
-  color: #000;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  border-radius: 50%;
   font-size: 24px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  transition: transform 0.25s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: transform .25s ease;
 }
 
 .jaquest-play:hover {
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%,-50%) scale(1.1);
 }
 
 /* =====================================================
@@ -195,56 +180,48 @@ body {
 ===================================================== */
 .jaquest-actions {
   display: flex;
-  align-items: stretch;
   gap: 1.25rem;
-  margin-top: 1.5rem;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
 .jaquest-support {
-  background-color: #00a79d;
+  background: #00a79d;
   color: #fff;
   padding: 1rem 1.5rem;
+  height: 72px;
   border-radius: 0 50px 50px 0;
   display: flex;
   align-items: center;
   gap: 1rem;
-  height: 72px;
 }
 
 .support-icon {
-  background: #fff;
-  color: #00a79d;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  background: #fff;
+  color: #00a79d;
   display: grid;
   place-items: center;
-  font-size: 20px;
-}
-
-.support-text strong {
-  font-size: 1.2rem;
 }
 
 .start-journey-btn {
   height: 72px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   padding: 0 2rem;
   background: #4f46e5;
   color: #fff;
-  font-weight: 600;
   border-radius: 9999px;
-  white-space: nowrap;
-  transition: all 0.25s ease;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .25s ease;
 }
 
 .start-journey-btn:hover {
-  background: #4338ca;
   transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 12px 24px rgba(79,70,229,.3);
 }
 
 /* =====================================================
@@ -268,46 +245,75 @@ body {
 }
 
 /* =====================================================
-   TESTIMONIAL CARD
+   TESTIMONIALS – UPGRADED SYSTEM (PRO)
 ===================================================== */
 .testimonial-card {
-  background: #fff;
-  border-radius: 1.25rem;
-  overflow: hidden;
+  position: relative;
   height: 100%;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  padding-top: 3.5rem;
+  background: linear-gradient(180deg,#ffffff,#f9fafb);
+  border-radius: 1.75rem;
+  box-shadow: 0 20px 45px rgba(0,0,0,.08);
+  transition: transform .35s ease, box-shadow .35s ease;
 }
 
 .testimonial-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 35px 70px rgba(0,0,0,.14);
 }
 
-.testimonial-card img {
+/* Avatar */
+.testimonial-avatar {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+.testimonial-avatar img {
   width: 100%;
-  height: 240px;
+  height: 100%;
   object-fit: cover;
 }
 
-.testimonial-card .content {
-  padding: 1.75rem;
+/* Content */
+.testimonial-content {
+  padding: 2rem 1.75rem 2.25rem;
   text-align: center;
 }
 
-.testimonial-card p {
-  font-style: italic;
-  color: #555;
-  margin-bottom: 1rem;
+.testimonial-content::before {
+  content: "“";
+  display: block;
+  font-size: 3rem;
+  line-height: 1;
+  color: #06b6d4;
+  opacity: .35;
+  margin-bottom: .5rem;
 }
 
-.testimonial-card h4 {
-  font-weight: 600;
+.testimonial-content p {
+  font-style: italic;
+  line-height: 1.65;
+  color: #444;
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-content h4 {
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .03em;
   color: #111;
 }
 
-.testimonial-card span {
-  font-size: 0.875rem;
+.testimonial-content span {
+  font-size: .8rem;
   color: #777;
 }
 
@@ -315,54 +321,19 @@ body {
    RESPONSIVE
 ===================================================== */
 @media (max-width: 768px) {
-
-  .jaquest-images {
-    flex-direction: column;
-  }
-
-  .jaquest-image-left,
-  .jaquest-image-right {
-    border-radius: 15px;
-  }
-
-  .jaquest-actions {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
+  .jaquest-images { flex-direction: column; }
+  .jaquest-actions { flex-direction: column; }
   .jaquest-support,
-  .start-journey-btn {
-    width: 100%;
-    height: 64px;
-  }
-
-  .jaquest-stats {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .jaquest-left,
-  .jaquest-right {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .rounded-custom {
-    border-radius: 24px;
-  }
+  .start-journey-btn { width: 100%; height: 64px; }
+  .jaquest-stats { flex-direction: column; gap: 1rem; }
+  .rounded-custom { border-radius: 24px; }
 }
 
 /* =====================================================
-   FORCE SIDE-BY-SIDE (DESKTOP)
+   FORCE DESKTOP SIDE-BY-SIDE
 ===================================================== */
 @media (min-width: 1024px) {
-  .jaquest-container {
-    flex-wrap: nowrap;
-    align-items: flex-start;
-  }
-
+  .jaquest-container { flex-wrap: nowrap; }
   .jaquest-left,
-  .jaquest-right {
-    flex: 0 0 48%;
-  }
+  .jaquest-right { flex: 0 0 48%; }
 }

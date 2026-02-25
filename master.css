@@ -1,0 +1,351 @@
+/* =====================================================
+   GLOBAL BASE
+===================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  padding-top: 100px; /* navbar offset */
+}
+
+/* =====================================================
+   SAFE COLOR UTILITIES (No Tailwind override)
+===================================================== */
+
+.text-jaquest-yellow {
+  color: #fbbf24;
+}
+
+/* =====================================================
+   TEXT EFFECTS
+===================================================== */
+
+.text-shadow-lg {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-md {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* =====================================================
+   MOBILE MENU ANIMATION
+===================================================== */
+
+#mobile-menu:not(.hidden) {
+  animation: slideRight 0.4s ease-out both;
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* =====================================================
+   FADE OUT
+===================================================== */
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.animate__fadeOut {
+  animation: fadeOut 1s forwards;
+}
+
+/* =====================================================
+   PARALLAX SUPPORT
+===================================================== */
+
+.parallax,
+.video-parallax {
+  will-change: transform;
+  transition: transform 0.25s ease-out;
+}
+
+/* =====================================================
+   GLOBE ILLUSTRATION
+===================================================== */
+
+.globe-illustration {
+  will-change: transform;
+  animation: globeBounce 2.5s ease-in-out infinite;
+}
+
+@keyframes globeBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* =====================================================
+   SERVICE CARDS
+===================================================== */
+
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #3b82f6;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.service-link:hover {
+  color: #06b6d4;
+}
+
+/* =====================================================
+   CUSTOM IMAGE SHAPE
+===================================================== */
+
+.rounded-custom {
+  border-radius: 100px 0 100px 0;
+}
+
+/* =====================================================
+   JAQUEST SECTION STRUCTURE
+===================================================== */
+
+.jaquest-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.jaquest-left,
+.jaquest-right {
+  flex: 1 1 300px;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Layout spacing rhythm */
+.jaquest-left {
+  padding-right: 2rem;
+}
+
+.jaquest-right {
+  padding-left: 2rem;
+}
+
+/* =====================================================
+   IMAGE LAYOUT
+===================================================== */
+
+.jaquest-images {
+  display: flex;
+  gap: 1rem;
+}
+
+.jaquest-image {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.jaquest-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.jaquest-image-left {
+  border-radius: 30px 0 0 30px;
+}
+
+.jaquest-image-right {
+  border-radius: 0 30px 30px 0;
+}
+
+/* Play Button */
+.jaquest-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease;
+}
+
+.jaquest-play:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* =====================================================
+   SUPPORT + CTA
+===================================================== */
+
+.jaquest-actions {
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.jaquest-support {
+  background-color: #00a79d;
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: 0 50px 50px 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 72px;
+}
+
+.support-icon {
+  background: #ffffff;
+  color: #00a79d;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+}
+
+.support-text strong {
+  font-size: 1.2rem;
+}
+
+.start-journey-btn {
+  height: 72px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #4f46e5;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0 2rem;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.start-journey-btn:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.3);
+}
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.jaquest-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.jaquest-stat {
+  min-width: 180px;
+  text-align: center;
+}
+
+.jaquest-stat .number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00a79d;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .jaquest-images {
+    flex-direction: column;
+  }
+
+  .jaquest-image-left,
+  .jaquest-image-right {
+    border-radius: 15px;
+  }
+
+  .jaquest-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .jaquest-support,
+  .start-journey-btn {
+    width: 100%;
+    height: 64px;
+  }
+
+  .jaquest-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .jaquest-left,
+  .jaquest-right {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .rounded-custom {
+    border-radius: 24px;
+  }
+}
+
+/* =====================================================
+   FORCE SIDE-BY-SIDE (DESKTOP)
+===================================================== */
+
+@media (min-width: 1024px) {
+  .jaquest-container {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+
+  .jaquest-left,
+  .jaquest-right {
+    flex: 0 0 48%;
+  }
+}

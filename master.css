@@ -1,7 +1,6 @@
 /* =====================================================
    GLOBAL BASE
 ===================================================== */
-
 html {
   scroll-behavior: smooth;
 }
@@ -9,13 +8,12 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  padding-top: 100px; /* navbar offset */
+  padding-top: 100px; /* Navbar offset */
 }
 
 /* =====================================================
-   SAFE COLOR UTILITIES (No Tailwind override)
+   SAFE COLOR UTILITIES (Tailwind-safe)
 ===================================================== */
-
 .text-jaquest-yellow {
   color: #fbbf24;
 }
@@ -23,7 +21,6 @@ body {
 /* =====================================================
    TEXT EFFECTS
 ===================================================== */
-
 .text-shadow-lg {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -34,16 +31,15 @@ body {
 
 .gradient-text {
   background: linear-gradient(to right, #3b82f6, #06b6d4);
-  -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 /* =====================================================
    MOBILE MENU ANIMATION
 ===================================================== */
-
 #mobile-menu:not(.hidden) {
   animation: slideRight 0.4s ease-out both;
 }
@@ -60,12 +56,11 @@ body {
 }
 
 /* =====================================================
-   FADE OUT
+   FADE OUT (SAFE UTILITY)
 ===================================================== */
-
 @keyframes fadeOut {
   from { opacity: 1; }
-  to { opacity: 0; }
+  to   { opacity: 0; }
 }
 
 .animate__fadeOut {
@@ -73,9 +68,8 @@ body {
 }
 
 /* =====================================================
-   PARALLAX SUPPORT
+   PARALLAX SUPPORT (GPU SAFE)
 ===================================================== */
-
 .parallax,
 .video-parallax {
   will-change: transform;
@@ -85,7 +79,6 @@ body {
 /* =====================================================
    GLOBE ILLUSTRATION
 ===================================================== */
-
 .globe-illustration {
   will-change: transform;
   animation: globeBounce 2.5s ease-in-out infinite;
@@ -93,13 +86,12 @@ body {
 
 @keyframes globeBounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50%      { transform: translateY(-20px); }
 }
 
 /* =====================================================
    SERVICE CARDS
 ===================================================== */
-
 .service-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -124,7 +116,6 @@ body {
 /* =====================================================
    CUSTOM IMAGE SHAPE
 ===================================================== */
-
 .rounded-custom {
   border-radius: 100px 0 100px 0;
 }
@@ -132,7 +123,6 @@ body {
 /* =====================================================
    JAQUEST SECTION STRUCTURE
 ===================================================== */
-
 .jaquest-container {
   display: flex;
   flex-wrap: wrap;
@@ -151,19 +141,13 @@ body {
   gap: 1rem;
 }
 
-/* Layout spacing rhythm */
-.jaquest-left {
-  padding-right: 2rem;
-}
-
-.jaquest-right {
-  padding-left: 2rem;
-}
+/* Desktop spacing rhythm */
+.jaquest-left  { padding-right: 2rem; }
+.jaquest-right { padding-left: 2rem; }
 
 /* =====================================================
    IMAGE LAYOUT
 ===================================================== */
-
 .jaquest-images {
   display: flex;
   gap: 1rem;
@@ -182,30 +166,23 @@ body {
   display: block;
 }
 
-.jaquest-image-left {
-  border-radius: 30px 0 0 30px;
-}
-
-.jaquest-image-right {
-  border-radius: 0 30px 30px 0;
-}
+.jaquest-image-left  { border-radius: 30px 0 0 30px; }
+.jaquest-image-right { border-radius: 0 30px 30px 0; }
 
 /* Play Button */
 .jaquest-play {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  inset: 50%;
   transform: translate(-50%, -50%);
   width: 60px;
   height: 60px;
-  background: #ffffff;
-  color: #000000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #fff;
+  color: #000;
+  display: grid;
+  place-items: center;
   border-radius: 50%;
   font-size: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   transition: transform 0.25s ease;
 }
 
@@ -216,7 +193,6 @@ body {
 /* =====================================================
    SUPPORT + CTA
 ===================================================== */
-
 .jaquest-actions {
   display: flex;
   align-items: stretch;
@@ -227,7 +203,7 @@ body {
 
 .jaquest-support {
   background-color: #00a79d;
-  color: #ffffff;
+  color: #fff;
   padding: 1rem 1.5rem;
   border-radius: 0 50px 50px 0;
   display: flex;
@@ -237,11 +213,11 @@ body {
 }
 
 .support-icon {
-  background: #ffffff;
+  background: #fff;
   color: #00a79d;
-  border-radius: 50%;
   width: 40px;
   height: 40px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
   font-size: 20px;
@@ -256,13 +232,13 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #4f46e5;
-  color: #ffffff;
-  font-weight: 600;
   padding: 0 2rem;
+  background: #4f46e5;
+  color: #fff;
+  font-weight: 600;
   border-radius: 9999px;
-  transition: all 0.25s ease;
   white-space: nowrap;
+  transition: all 0.25s ease;
 }
 
 .start-journey-btn:hover {
@@ -274,7 +250,6 @@ body {
 /* =====================================================
    STATS
 ===================================================== */
-
 .jaquest-stats {
   display: flex;
   gap: 2rem;
@@ -293,9 +268,52 @@ body {
 }
 
 /* =====================================================
+   TESTIMONIAL CARD
+===================================================== */
+.testimonial-card {
+  background: #fff;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.testimonial-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.testimonial-card .content {
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.testimonial-card p {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.testimonial-card h4 {
+  font-weight: 600;
+  color: #111;
+}
+
+.testimonial-card span {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+/* =====================================================
    RESPONSIVE
 ===================================================== */
-
 @media (max-width: 768px) {
 
   .jaquest-images {
@@ -337,7 +355,6 @@ body {
 /* =====================================================
    FORCE SIDE-BY-SIDE (DESKTOP)
 ===================================================== */
-
 @media (min-width: 1024px) {
   .jaquest-container {
     flex-wrap: nowrap;

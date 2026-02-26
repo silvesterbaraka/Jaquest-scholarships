@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Book an Appointment | JaQuest</title>
 
   <!-- Tailwind -->
@@ -13,111 +13,154 @@
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
   <style>
-    body {
-      padding-top: 100px;
-      background: #0b1220;
-      color: #f8fafc;
-      font-family: 'Poppins', sans-serif;
-    }
+  body{
+    padding-top:96px;
+    background:#0b1220;
+    color:#f8fafc;
+    font-family:'Poppins',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
 
-    nav a {
-      color: #e5e7eb;
-      transition: color .2s;
-    }
-    nav a:hover {
-      color: #fde047;
-    }
+  nav a{
+    color:#e5e7eb;
+    transition:all .25s ease;
+    position:relative;
+  }
 
-    .form-container {
-      background: rgba(15,23,42,0.96);
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
+  nav a:hover{
+    color:#fde047;
+  }
 
-    .form-input,
-    .form-select,
-    .form-textarea {
-      width: 100%;
-      padding: 14px 16px;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 12px;
-      color: #f9fafb;
-      font-size: 0.95rem;
-    }
+  nav a::after{
+    content:"";
+    position:absolute;
+    bottom:-4px;
+    left:0;
+    width:0%;
+    height:2px;
+    background:#fde047;
+    transition:.3s ease;
+  }
 
-    .form-input::placeholder {
-      color: #cbd5f5;
-    }
+  nav a:hover::after{
+    width:100%;
+  }
 
-    .form-input:focus,
-    .form-select:focus,
-    .form-textarea:focus {
-      outline: none;
-      border-color: #38bdf8;
-      box-shadow: 0 0 0 3px rgba(56,189,248,.45);
-      background: rgba(255,255,255,0.18);
-    }
+  .card{
+    background:rgba(15,23,42,.85);
+    backdrop-filter:blur(14px);
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 10px 40px rgba(0,0,0,.6);
+    transition:.4s ease;
+  }
 
-    .form-select option {
-      background-color: #0f172a;
-      color: #f8fafc;
-    }
+  .card:hover{
+    transform:translateY(-4px);
+  }
 
-    .error-text {
-      color: #f87171;
-      font-size: 0.75rem;
-      margin-top: 4px;
-    }
+  .input{
+    width:100%;
+    padding:12px 14px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:12px;
+    color:#f9fafb;
+    font-size:.9rem;
+    transition:.25s ease;
+  }
 
-    .form-button {
-      background: linear-gradient(to right,#6366f1,#4f46e5);
-      border-radius: 9999px;
-      padding: 14px;
-      font-weight: 600;
-      transition: transform .2s, box-shadow .2s;
-    }
+  .input::placeholder{
+    color:#cbd5f5;
+  }
 
-    .form-button:hover:not(:disabled) {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(79,70,229,.5);
-    }
+  .input:focus{
+    outline:none;
+    border-color:#38bdf8;
+    box-shadow:0 0 0 3px rgba(56,189,248,.35);
+    background:rgba(255,255,255,.18);
+    transform:scale(1.01);
+  }
 
-    .form-button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
+  select option{
+    background:#0f172a;
+    color:#f8fafc;
+  }
 
-    #mobileMenu {
-      background-color: #f5deb3;
-      color: #1e293b;
-    }
+  .btn{
+    background:linear-gradient(to right,#2563eb,#1d4ed8);
+    border-radius:9999px;
+    padding:12px;
+    font-weight:600;
+    transition:.3s ease;
+  }
 
-    #mobileMenu a {
-      color: #1e293b;
-      font-weight: 500;
-    }
+  .btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(37,99,235,.5);
+  }
 
-    #mobileMenu a:hover {
-      color: #1d4ed8;
-    }
-  </style>
+  .btn:active{
+    transform:scale(.97);
+  }
+
+  #mobileMenu{
+    background:#f5deb3;
+    color:#1e293b;
+    transition:.4s cubic-bezier(.4,0,.2,1);
+  }
+
+  #mobileMenu a{
+    color:#1e293b;
+    font-weight:500;
+    transition:.2s ease;
+  }
+
+  #mobileMenu a:hover{
+    color:#1d4ed8;
+    padding-left:6px;
+  }
+
+  /* Overlay */
+  #menuOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s ease;
+    z-index:40;
+  }
+
+  #menuOverlay.active{
+    opacity:1;
+    visibility:visible;
+  }
+
+  /* Success animation */
+  #successMsg{
+    animation:fadeIn .4s ease forwards;
+  }
+
+  @keyframes fadeIn{
+    from{opacity:0;transform:translateY(6px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+</style>
 </head>
 
 <body>
 
 <!-- ================= NAVBAR ================= -->
-<nav class="fixed top-0 left-0 w-full bg-blue-800 shadow-lg z-50">
+<nav class="fixed top-0 left-0 w-full bg-blue-800 shadow z-50">
   <div class="max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
-
-    <div class="flex items-center gap-4">
-      <img src="jaquestlogo.jpg" class="h-14 w-14 rounded-full ring-2 ring-white" alt="JaQuest logo">
-      <span class="text-2xl font-bold tracking-wide text-white">JaQuest</span>
+    <div class="flex items-center gap-3">
+      <img src="jaquestlogo.jpg" class="h-12 w-12 rounded-full ring-2 ring-white" alt="JaQuest">
+      <span class="text-xl font-bold text-white">JaQuest</span>
     </div>
 
-    <div class="hidden md:flex gap-8 text-lg">
+    <div class="hidden md:flex gap-7 text-base">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="courses.html">Courses</a>
@@ -125,69 +168,50 @@
       <a href="contact.html">Contact</a>
     </div>
 
-    <button id="menuBtn"
-      class="md:hidden p-3 bg-white text-blue-800 rounded-full text-xl shadow-lg"
-      aria-label="Open menu">
-      ☰
-    </button>
+    <button id="menuBtn" class="md:hidden p-2 bg-white text-blue-800 rounded-full text-xl">☰</button>
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu"
-    class="fixed top-0 left-0 h-full w-4/5 max-w-sm shadow-2xl
-           transform -translate-x-full transition-transform duration-300 md:hidden z-50">
-
+  <!-- Mobile -->
+  <div id="mobileMenu" class="fixed top-0 left-0 h-full w-4/5 max-w-sm shadow-2xl
+       transform -translate-x-full transition md:hidden z-50">
     <div class="flex justify-end p-4">
       <button id="closeBtn" class="text-3xl font-bold">&times;</button>
     </div>
-
-    <div class="flex flex-col space-y-6 p-6 text-lg">
+    <nav class="flex flex-col gap-5 p-6 text-lg">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="courses.html">Courses</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
-    </div>
+    </nav>
   </div>
 </nav>
 
 <!-- ================= APPOINTMENT ================= -->
-<section class="min-h-screen pt-28 pb-20 px-4 flex justify-center items-center bg-cover bg-center"
+<section class="min-h-screen pt-20 pb-16 px-4 flex justify-center items-center bg-cover bg-center"
   style="background-image:url('appointment-bg.jpg')">
-  <div class="absolute inset-0 bg-black opacity-75"></div>
+  <div class="absolute inset-0 bg-black/75"></div>
 
-  <div class="relative z-10 w-full max-w-2xl">
+  <div class="relative z-10 w-full max-w-xl">
 
-    <p class="text-sm text-gray-300 mb-4">
-      Home / Appointment
-    </p>
-
-    <div class="text-center mb-8">
-      <h1 class="text-4xl md:text-5xl font-bold text-white">
-        Book Your Appointment
-      </h1>
-      <p class="text-gray-300 mt-3">
-        Get expert guidance on scholarships, admissions & visas
+    <div class="text-center mb-6">
+      <h1 class="text-3xl md:text-4xl font-bold">Book Your Appointment</h1>
+      <p class="text-gray-300 text-sm mt-2">
+        Scholarships • Admissions • Visas
       </p>
     </div>
 
-    <div class="form-container p-6 sm:p-8">
-      <form id="appointmentForm" class="space-y-6" novalidate>
+    <div class="card p-6">
+      <form id="appointmentForm" class="space-y-4">
 
-        <input type="text" name="company" class="hidden" tabindex="-1">
+        <!-- Honeypot -->
+        <input type="text" name="company" class="hidden">
 
-        <div>
-          <input name="name" class="form-input" placeholder="Full Name *" required>
-          <p class="error-text hidden"></p>
-        </div>
+        <input name="name" class="input" placeholder="Full Name *" required>
+        <input name="email" type="email" class="input" placeholder="Email Address *" required>
 
-        <div>
-          <input name="email" type="email" class="form-input" placeholder="Email Address *" required>
-          <p class="error-text hidden"></p>
-        </div>
-
-        <select name="purpose" class="form-select" required>
-          <option value="">Purpose of appointment *</option>
+        <select name="purpose" class="input" required>
+          <option value="">Purpose *</option>
           <option>Scholarship Guidance</option>
           <option>University Admission</option>
           <option>Visa Support</option>
@@ -195,23 +219,18 @@
         </select>
 
         <div class="flex gap-3">
-          <input id="countryInput" list="countryList"
-            class="form-input flex-1"
-            placeholder="Country or code (India / +91) *"
-            required>
-          <input name="phone" class="form-input flex-1"
-            placeholder="Phone number *" required>
+          <input id="countryInput" list="countryList" class="input flex-1"
+                 placeholder="Country / Code *" required>
+          <input name="phone" class="input flex-1" placeholder="Phone *" required>
         </div>
 
         <input type="hidden" name="countryCode" id="countryCode">
         <datalist id="countryList"></datalist>
 
-        <input id="appointmentDate" name="date"
-          class="form-input"
-          placeholder="Appointment Date *" required>
+        <input id="appointmentDate" name="date" class="input" placeholder="Appointment Date *" required>
 
-        <select name="time" class="form-select" required>
-          <option value="">Select Time *</option>
+        <select name="time" class="input" required>
+          <option value="">Time *</option>
           <option>09:00 AM</option>
           <option>10:00 AM</option>
           <option>11:00 AM</option>
@@ -219,115 +238,208 @@
           <option>03:00 PM</option>
         </select>
 
-        <textarea name="message" rows="3"
-          class="form-textarea"
+        <textarea name="message" rows="2" class="input"
           placeholder="Brief message (optional)"></textarea>
 
-        <button id="submitBtn" class="form-button w-full">
-          Submit Appointment
-        </button>
+        <button id="submitBtn" class="btn w-full">Submit Appointment</button>
 
-        <p class="text-xs text-gray-400 text-center">
-          🔒 Your information is private & secure
-        </p>
+        <p class="text-xs text-gray-400 text-center">🔒 Your data is secure</p>
 
         <div id="spinner" class="hidden text-center">
-          <div class="animate-spin h-10 w-10 border-t-4 border-blue-400 rounded-full mx-auto"></div>
+          <div class="animate-spin h-8 w-8 border-t-4 border-blue-400 rounded-full mx-auto"></div>
         </div>
-
-        <div id="successMsg"
-          class="hidden text-green-400 text-center font-semibold">
-          ✅ Appointment booked successfully! We’ll contact you shortly.
+        <div id="successMsg" class="hidden text-green-400 text-center text-sm font-semibold">
+          ✅ Appointment booked successfully
         </div>
 
       </form>
     </div>
 
-    <!-- Trust -->
-    <div class="mt-10 text-center text-sm text-gray-400">
-      Trusted by 5,000+ students across Africa & Asia
-    </div>
+    <p class="mt-6 text-center text-xs text-gray-400">
+      Trusted by students across Africa & Asia
+    </p>
   </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="bg-indigo-950 py-4 text-center text-gray-300 text-sm">
-  © 2025 JaQuest. All Rights Reserved.
+<footer class="bg-blue-900 py-4 text-center text-gray-300 text-xs">
+  © <span id="year"></span> JaQuest. All rights reserved.
 </footer>
 
 <!-- ================= SCRIPTS ================= -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-  flatpickr("#appointmentDate", { minDate: "today" });
+  /* ================= DATE PICKER ================= */
+  flatpickr("#appointmentDate", {
+    minDate: "today",
+    disableMobile: true
+  });
 
+  /* ================= MOBILE MENU ================= */
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   const closeBtn = document.getElementById("closeBtn");
+  const overlay = document.getElementById("menuOverlay");
 
-  menuBtn.onclick = () => mobileMenu.classList.remove("-translate-x-full");
-  closeBtn.onclick = () => mobileMenu.classList.add("-translate-x-full");
+  const openMenu = () => {
+    mobileMenu.classList.remove("-translate-x-full");
+    overlay.classList.add("active");
+  };
 
+  const closeMenu = () => {
+    mobileMenu.classList.add("-translate-x-full");
+    overlay.classList.remove("active");
+  };
+
+  menuBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+
+  /* ================= EXTENDED COUNTRY CODES ================= */
   const countries = [
-    ["United States","+1"],["United Kingdom","+44"],["India","+91"],
-    ["Nigeria","+234"],["Kenya","+254"],["Uganda","+256"],
-    ["Tanzania","+255"],["South Africa","+27"],["UAE","+971"],
-    ["Canada","+1"],["Australia","+61"],["Germany","+49"],
-    ["France","+33"],["Italy","+39"],["Spain","+34"],
-    ["China","+86"],["Japan","+81"],["Pakistan","+92"],
-    ["Bangladesh","+880"],["Nepal","+977"],["Egypt","+20"],
-    ["Ethiopia","+251"],["Ghana","+233"],["Rwanda","+250"],
-    ["South Sudan","+211"]
+    ["Algeria","+213"],["Angola","+244"],["Benin","+229"],["Botswana","+267"],
+    ["Burkina Faso","+226"],["Burundi","+257"],["Cameroon","+237"],
+    ["Cape Verde","+238"],["Central African Republic","+236"],
+    ["Chad","+235"],["Comoros","+269"],["Congo","+242"],
+    ["DR Congo","+243"],["Djibouti","+253"],["Egypt","+20"],
+    ["Equatorial Guinea","+240"],["Eritrea","+291"],["Eswatini","+268"],
+    ["Ethiopia","+251"],["Gabon","+241"],["Gambia","+220"],
+    ["Ghana","+233"],["Guinea","+224"],["Guinea-Bissau","+245"],
+    ["Ivory Coast","+225"],["Kenya","+254"],["Lesotho","+266"],
+    ["Liberia","+231"],["Libya","+218"],["Madagascar","+261"],
+    ["Malawi","+265"],["Mali","+223"],["Mauritania","+222"],
+    ["Mauritius","+230"],["Morocco","+212"],["Mozambique","+258"],
+    ["Namibia","+264"],["Niger","+227"],["Nigeria","+234"],
+    ["Rwanda","+250"],["Sao Tome & Principe","+239"],
+    ["Senegal","+221"],["Seychelles","+248"],["Sierra Leone","+232"],
+    ["Somalia","+252"],["South Africa","+27"],["South Sudan","+211"],
+    ["Sudan","+249"],["Tanzania","+255"],["Togo","+228"],
+    ["Tunisia","+216"],["Uganda","+256"],["Zambia","+260"],
+    ["Zimbabwe","+263"],
+
+    ["Afghanistan","+93"],["Bangladesh","+880"],["Bhutan","+975"],
+    ["Cambodia","+855"],["China","+86"],["India","+91"],
+    ["Indonesia","+62"],["Iran","+98"],["Iraq","+964"],
+    ["Jordan","+962"],["Kazakhstan","+7"],["Kyrgyzstan","+996"],
+    ["Laos","+856"],["Lebanon","+961"],["Malaysia","+60"],
+    ["Maldives","+960"],["Mongolia","+976"],["Myanmar","+95"],
+    ["Nepal","+977"],["North Korea","+850"],["Pakistan","+92"],
+    ["Philippines","+63"],["Sri Lanka","+94"],["Syria","+963"],
+    ["Tajikistan","+992"],["Thailand","+66"],["Timor-Leste","+670"],
+    ["Turkey","+90"],["Turkmenistan","+993"],["Uzbekistan","+998"],
+    ["Vietnam","+84"],["Yemen","+967"],
+
+    ["Bahrain","+973"],["Kuwait","+965"],["Oman","+968"],
+    ["Qatar","+974"],["Saudi Arabia","+966"],["UAE","+971"],
+
+    ["France","+33"],["Germany","+49"],["Italy","+39"],
+    ["Netherlands","+31"],["Poland","+48"],["Portugal","+351"],
+    ["Romania","+40"],["Spain","+34"],["Sweden","+46"],
+    ["Switzerland","+41"],["UK","+44"],
+
+    ["Argentina","+54"],["Brazil","+55"],["Canada","+1"],
+    ["Colombia","+57"],["Mexico","+52"],["USA","+1"],
+
+    ["Australia","+61"],["New Zealand","+64"]
   ];
+
+  /* ================= COUNTRY LOOKUP MAP (PERFORMANCE) ================= */
+  const countryMap = new Map(
+    countries.map(([name, code]) => [name.toLowerCase(), code])
+  );
 
   const list = document.getElementById("countryList");
   const countryInput = document.getElementById("countryInput");
-  const countryCodeInput = document.getElementById("countryCode");
+  const codeInput = document.getElementById("countryCode");
+  const phoneInput = document.querySelector('input[name="phone"]');
 
+  /* Populate datalist (one-time) */
+  const fragment = document.createDocumentFragment();
   countries.forEach(([name, code]) => {
     const opt = document.createElement("option");
     opt.value = `${name} (${code})`;
-    list.appendChild(opt);
+    fragment.appendChild(opt);
+  });
+  list.appendChild(fragment);
+
+/* ================= BULLETPROOF COUNTRY → PHONE CODE AUTOFILL ================= */
+
+function normalize(text){
+  return text.toLowerCase().replace(/[^a-z ]/g, "").trim();
+}
+
+countryInput.addEventListener("input", () => {
+  const typed = normalize(countryInput.value);
+  if (!typed) return;
+
+  for (const [name, code] of countries) {
+    if (normalize(name).startsWith(typed)) {
+      codeInput.value = code;
+
+      if (!phoneInput.value.startsWith(code)) {
+        phoneInput.value = code + " ";
+      }
+      break;
+    }
+  }
+});
+
+/* Ensure it fires when selecting from datalist */
+countryInput.addEventListener("change", () => {
+  countryInput.dispatchEvent(new Event("input"));
+});
+/* Also trigger when user selects from dropdown */
+countryInput.addEventListener("change", () => {
+  countryInput.dispatchEvent(new Event("input"));
+});
+  /* ================= PHONE INPUT CLEANING ================= */
+  phoneInput.addEventListener("input", e => {
+    e.target.value = e.target.value.replace(/[^\d+ ]/g, "");
   });
 
-  countryInput.addEventListener("input", () => {
-    const match = countries.find(([name, code]) =>
-      countryInput.value.toLowerCase().includes(name.toLowerCase()) ||
-      countryInput.value.includes(code)
-    );
-    countryCodeInput.value = match ? match[1] : "";
-  });
-
+  /* ================= FORM SUBMISSION ================= */
   const form = document.getElementById("appointmentForm");
   const spinner = document.getElementById("spinner");
-  const successMsg = document.getElementById("successMsg");
-  const submitBtn = document.getElementById("submitBtn");
+  const success = document.getElementById("successMsg");
+  const btn = document.getElementById("submitBtn");
 
   form.addEventListener("submit", async e => {
     e.preventDefault();
-    spinner.classList.remove("hidden");
-    submitBtn.disabled = true;
 
+    /* Honeypot */
     if (form.company.value) return;
+
+    spinner.classList.remove("hidden");
+    btn.disabled = true;
+    btn.classList.add("opacity-70","cursor-not-allowed");
 
     const data = Object.fromEntries(new FormData(form));
     data.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     try {
-      await fetch("https://YOUR-BACKEND-URL/api/appointments", {
+      const res = await fetch("https://YOUR-BACKEND-URL/api/appointments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
-      successMsg.classList.remove("hidden");
+
+      if (!res.ok) throw new Error();
+
+      success.classList.remove("hidden");
+      setTimeout(() => success.classList.add("hidden"), 4000);
       form.reset();
+
     } catch {
-      alert("Submission failed. Please try again.");
+      alert("Submission failed. Try again.");
     } finally {
       spinner.classList.add("hidden");
-      submitBtn.disabled = false;
+      btn.disabled = false;
+      btn.classList.remove("opacity-70","cursor-not-allowed");
     }
   });
-</script>
 
+  /* ================= FOOTER YEAR ================= */
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

@@ -1,332 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book an Appointment | JaQuest</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us | JaQuest Scholarships Agency</title>
 
-  <!-- Tailwind -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<!-- Performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Flatpickr -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <style>
-    body {
-      padding-top: 100px;
-      background: #0b1220;
-      color: #f8fafc;
-      font-family: 'Poppins', sans-serif;
-    }
+<style>
+:root{
+  --blue:#0d47a1;
+  --blue-dark:#082567;
+  --white:#ffffff;
+  --wheat:#f5deb3;
+  --black:#0b0f19;
+  --border:#e5e7eb;
+}
 
-    nav a {
-      color: #e5e7eb;
-      transition: color .2s;
-    }
-    nav a:hover {
-      color: #fde047;
-    }
+/* RESET */
+*,
+*::before,
+*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .form-container {
-      background: rgba(15,23,42,0.96);
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
+html{scroll-behavior:smooth}
 
-    .form-input,
-    .form-select,
-    .form-textarea {
-      width: 100%;
-      padding: 14px 16px;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 12px;
-      color: #f9fafb;
-      font-size: 0.95rem;
-    }
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--white);
+  color:var(--black);
+  line-height:1.55;
+  overflow-x:hidden;
+}
 
-    .form-input::placeholder {
-      color: #cbd5f5;
-    }
+/* NAVBAR */
+header{
+  position:fixed;
+  inset:0 0 auto 0;
+  background:var(--blue);
+  z-index:1000;
+  box-shadow:0 3px 10px rgba(0,0,0,.12);
+}
 
-    .form-input:focus,
-    .form-select:focus,
-    .form-textarea:focus {
-      outline: none;
-      border-color: #38bdf8;
-      box-shadow: 0 0 0 3px rgba(56,189,248,.45);
-      background: rgba(255,255,255,0.18);
-    }
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    .form-select option {
-      background-color: #0f172a;
-      color: #f8fafc;
-    }
+.logo{
+  font-size:clamp(16px,2.5vw,18px);
+  font-weight:800;
+  color:var(--white);
+}
 
-    .error-text {
-      color: #f87171;
-      font-size: 0.75rem;
-      margin-top: 4px;
-    }
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
 
-    .form-button {
-      background: linear-gradient(to right,#6366f1,#4f46e5);
-      border-radius: 9999px;
-      padding: 14px;
-      font-weight: 600;
-      transition: transform .2s, box-shadow .2s;
-    }
+nav a{
+  color:var(--white);
+  font-size:13.5px;
+  font-weight:500;
+  text-decoration:none;
+}
 
-    .form-button:hover:not(:disabled) {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(79,70,229,.5);
-    }
+nav a:hover{color:var(--wheat)}
 
-    .form-button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
+.menu-btn{
+  display:none;
+  width:36px;
+  height:36px;
+  background:var(--white);
+  border-radius:6px;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+.menu-btn i{color:var(--blue);font-size:18px}
 
-    #mobileMenu {
-      background-color: #f5deb3;
-      color: #1e293b;
-    }
+/* MOBILE NAV */
+.mobile-nav{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:min(82%,340px);
+  height:100dvh;
+  background:var(--blue-dark);
+  padding:76px 20px;
+  transition:.3s ease;
+  z-index:2000;
+}
 
-    #mobileMenu a {
-      color: #1e293b;
-      font-weight: 500;
-    }
+.mobile-nav.active{right:0}
 
-    #mobileMenu a:hover {
-      color: #1d4ed8;
-    }
-  </style>
+.mobile-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:34px;
+  height:34px;
+  background:var(--white);
+  border-radius:6px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+
+.mobile-close i{color:var(--blue-dark)}
+
+.mobile-nav a{
+  display:block;
+  color:var(--white);
+  font-size:16px;
+  padding:10px 0;
+  text-decoration:none;
+}
+
+/* MAIN */
+main{
+  padding-top:92px;
+  padding-bottom:56px;
+}
+
+.container{
+  max-width:1120px;
+  margin:auto;
+  padding:0 16px;
+}
+
+/* HEADER */
+.page-head{
+  max-width:780px;
+  margin-bottom:28px;
+}
+
+.page-head h1{
+  font-size:clamp(24px,5vw,30px);
+  font-weight:800;
+  color:var(--blue);
+  margin-bottom:8px;
+}
+
+.page-head p{
+  font-size:14.5px;
+  color:#222;
+}
+
+/* SECTIONS */
+.section{
+  margin-bottom:32px;
+}
+
+.section h2{
+  font-size:clamp(18px,4vw,20px);
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.section p{
+  font-size:14px;
+  max-width:900px;
+  color:#333;
+}
+
+/* FRAMEWORK */
+.framework{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  margin-top:16px;
+}
+
+.card{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px;
+  background:#fff;
+  transition:.25s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 28px rgba(0,0,0,.07);
+}
+
+.card h3{
+  font-size:14.5px;
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.card p{
+  font-size:13.5px;
+  color:#444;
+}
+
+/* CONTACT */
+.contact{
+  background:var(--blue);
+  color:var(--white);
+  border-radius:14px;
+  padding:22px;
+}
+
+.contact h3{
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;
+}
+
+.contact-item{
+  font-size:13.5px;
+  line-height:1.45;
+}
+
+.contact-item a{
+  color:var(--white);
+  text-decoration:none;
+  word-break:break-word;
+}
+
+.contact-item i{
+  color:var(--wheat);
+  margin-right:6px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav ul{display:none}
+  .menu-btn{display:flex}
+}
+</style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<nav class="fixed top-0 left-0 w-full bg-blue-800 shadow-lg z-50">
-  <div class="max-w-7xl mx-auto px-4 h-24 flex justify-between items-center">
-
-    <div class="flex items-center gap-4">
-      <img src="jaquestlogo.jpg" class="h-14 w-14 rounded-full ring-2 ring-white" alt="JaQuest logo">
-      <span class="text-2xl font-bold tracking-wide text-white">JaQuest</span>
-    </div>
-
-    <div class="hidden md:flex gap-8 text-lg">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="courses.html">Courses</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <button id="menuBtn"
-      class="md:hidden p-3 bg-white text-blue-800 rounded-full text-xl shadow-lg"
-      aria-label="Open menu">
-      ☰
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobileMenu"
-    class="fixed top-0 left-0 h-full w-4/5 max-w-sm shadow-2xl
-           transform -translate-x-full transition-transform duration-300 md:hidden z-50">
-
-    <div class="flex justify-end p-4">
-      <button id="closeBtn" class="text-3xl font-bold">&times;</button>
-    </div>
-
-    <div class="flex flex-col space-y-6 p-6 text-lg">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="courses.html">Courses</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+<header data-aos="fade-down">
+  <div class="nav">
+    <div class="logo">JaQuest</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-btn" id="menuBtn" onclick="toggleMenu()" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
     </div>
   </div>
-</nav>
+</header>
 
-<!-- ================= APPOINTMENT ================= -->
-<section class="min-h-screen pt-28 pb-20 px-4 flex justify-center items-center bg-cover bg-center"
-  style="background-image:url('appointment-bg.jpg')">
-  <div class="absolute inset-0 bg-black opacity-75"></div>
-
-  <div class="relative z-10 w-full max-w-2xl">
-
-    <p class="text-sm text-gray-300 mb-4">
-      Home / Appointment
-    </p>
-
-    <div class="text-center mb-8">
-      <h1 class="text-4xl md:text-5xl font-bold text-white">
-        Book Your Appointment
-      </h1>
-      <p class="text-gray-300 mt-3">
-        Get expert guidance on scholarships, admissions & visas
-      </p>
-    </div>
-
-    <div class="form-container p-6 sm:p-8">
-      <form id="appointmentForm" class="space-y-6" novalidate>
-
-        <input type="text" name="company" class="hidden" tabindex="-1">
-
-        <div>
-          <input name="name" class="form-input" placeholder="Full Name *" required>
-          <p class="error-text hidden"></p>
-        </div>
-
-        <div>
-          <input name="email" type="email" class="form-input" placeholder="Email Address *" required>
-          <p class="error-text hidden"></p>
-        </div>
-
-        <select name="purpose" class="form-select" required>
-          <option value="">Purpose of appointment *</option>
-          <option>Scholarship Guidance</option>
-          <option>University Admission</option>
-          <option>Visa Support</option>
-          <option>General Consultation</option>
-        </select>
-
-        <div class="flex gap-3">
-          <input id="countryInput" list="countryList"
-            class="form-input flex-1"
-            placeholder="Country or code (India / +91) *"
-            required>
-          <input name="phone" class="form-input flex-1"
-            placeholder="Phone number *" required>
-        </div>
-
-        <input type="hidden" name="countryCode" id="countryCode">
-        <datalist id="countryList"></datalist>
-
-        <input id="appointmentDate" name="date"
-          class="form-input"
-          placeholder="Appointment Date *" required>
-
-        <select name="time" class="form-select" required>
-          <option value="">Select Time *</option>
-          <option>09:00 AM</option>
-          <option>10:00 AM</option>
-          <option>11:00 AM</option>
-          <option>02:00 PM</option>
-          <option>03:00 PM</option>
-        </select>
-
-        <textarea name="message" rows="3"
-          class="form-textarea"
-          placeholder="Brief message (optional)"></textarea>
-
-        <button id="submitBtn" class="form-button w-full">
-          Submit Appointment
-        </button>
-
-        <p class="text-xs text-gray-400 text-center">
-          🔒 Your information is private & secure
-        </p>
-
-        <div id="spinner" class="hidden text-center">
-          <div class="animate-spin h-10 w-10 border-t-4 border-blue-400 rounded-full mx-auto"></div>
-        </div>
-
-        <div id="successMsg"
-          class="hidden text-green-400 text-center font-semibold">
-          ✅ Appointment booked successfully! We’ll contact you shortly.
-        </div>
-
-      </form>
-    </div>
-
-    <!-- Trust -->
-    <div class="mt-10 text-center text-sm text-gray-400">
-      Trusted by 5,000+ students across Africa & Asia
-    </div>
+<div class="mobile-nav" id="mobileNav" role="navigation">
+  <div class="mobile-close" onclick="closeMenu()">
+    <i class="fas fa-xmark"></i>
   </div>
-</section>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+</div>
 
-<!-- ================= FOOTER ================= -->
-<footer class="bg-indigo-950 py-4 text-center text-gray-300 text-sm">
-  © 2025 JaQuest. All Rights Reserved.
-</footer>
+<main>
+<div class="container">
 
-<!-- ================= SCRIPTS ================= -->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<div class="page-head" data-aos="fade-up">
+  <h1>About JaQuest Scholarships Agency</h1>
+  <p>
+    JaQuest Scholarships Agency is an education-focused coordination and student-support institution
+    committed to ethical guidance, risk reduction, and student welfare in international education pathways.
+  </p>
+</div>
+
+<div class="section" data-aos="fade-up">
+  <h2>Institutional Mandate</h2>
+  <p>
+    JaQuest is not a recruitment agency and does not act as a decision-making authority.
+    Our mandate is advisory and coordinative — ensuring informed student engagement,
+    procedural clarity, and responsible institutional alignment.
+  </p>
+</div>
+
+<div class="section" data-aos="fade-up">
+  <h2>Student Protection & Coordination Framework</h2>
+  <div class="framework">
+    <div class="card" data-aos="fade-up" data-aos-delay="50"><h3>Context Assessment</h3><p>Academic readiness and expectation alignment.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="100"><h3>Risk Awareness</h3><p>Academic rigor and cultural realities.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="150"><h3>Procedural Guidance</h3><p>Documentation accuracy and timelines.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="200"><h3>Ethical Safeguards</h3><p>Transparent and non-exploitative practice.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="250"><h3>Mental Well-Being</h3><p>Stress awareness and early support.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="300"><h3>Institutional Respect</h3><p>Aligned collaboration with universities.</p></div>
+  </div>
+</div>
+
+<div class="contact" data-aos="fade-up">
+  <h3>Contact & Communication</h3>
+  <div class="contact-grid">
+
+    <div class="contact-item">
+      <i class="fas fa-location-dot"></i>
+      <a href="https://www.google.com/maps/search/?api=1&query=Urban+Estate+Phase+II+Patiala" target="_blank">
+        Urban Estate Phase II, Patiala, Punjab, India
+      </a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fab fa-whatsapp"></i>
+      <a href="https://wa.me/917986177217?text=Hello%20JaQuest%2C%20I%20would%20like%20to%20inquire%20about%20scholarship%20guidance." target="_blank">
+        +91 79861 77217
+      </a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fas fa-envelope"></i>
+      <a href="mailto:info@jaquest.org?subject=Scholarship%20Inquiry">info@jaquest.org</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fas fa-envelope-open"></i>
+      <a href="mailto:support@jaquest.org?subject=Student%20Support">support@jaquest.org</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fas fa-globe"></i>
+      <a href="https://www.jaquest.org" target="_blank">www.jaquest.org</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fas fa-clock"></i>
+      Mon – Sat | 9:00 AM – 6:00 PM (IST)
+    </div>
+
+  </div>
+</div>
+
+</div>
+</main>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script>
-  flatpickr("#appointmentDate", { minDate: "today" });
+document.addEventListener('DOMContentLoaded', () => {
 
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-  const closeBtn = document.getElementById("closeBtn");
-
-  menuBtn.onclick = () => mobileMenu.classList.remove("-translate-x-full");
-  closeBtn.onclick = () => mobileMenu.classList.add("-translate-x-full");
-
-  const countries = [
-    ["United States","+1"],["United Kingdom","+44"],["India","+91"],
-    ["Nigeria","+234"],["Kenya","+254"],["Uganda","+256"],
-    ["Tanzania","+255"],["South Africa","+27"],["UAE","+971"],
-    ["Canada","+1"],["Australia","+61"],["Germany","+49"],
-    ["France","+33"],["Italy","+39"],["Spain","+34"],
-    ["China","+86"],["Japan","+81"],["Pakistan","+92"],
-    ["Bangladesh","+880"],["Nepal","+977"],["Egypt","+20"],
-    ["Ethiopia","+251"],["Ghana","+233"],["Rwanda","+250"],
-    ["South Sudan","+211"]
-  ];
-
-  const list = document.getElementById("countryList");
-  const countryInput = document.getElementById("countryInput");
-  const countryCodeInput = document.getElementById("countryCode");
-
-  countries.forEach(([name, code]) => {
-    const opt = document.createElement("option");
-    opt.value = `${name} (${code})`;
-    list.appendChild(opt);
+  AOS.init({
+    duration:700,
+    easing:'ease-out-cubic',
+    once:true
   });
 
-  countryInput.addEventListener("input", () => {
-    const match = countries.find(([name, code]) =>
-      countryInput.value.toLowerCase().includes(name.toLowerCase()) ||
-      countryInput.value.includes(code)
-    );
-    countryCodeInput.value = match ? match[1] : "";
+  const mobileNav = document.getElementById('mobileNav');
+  const menuIcon = document.querySelector('#menuBtn i');
+
+  window.toggleMenu = () => {
+    mobileNav.classList.toggle('active');
+    menuIcon.classList.toggle('fa-bars');
+    menuIcon.classList.toggle('fa-xmark');
+  };
+
+  window.closeMenu = () => {
+    mobileNav.classList.remove('active');
+    menuIcon.classList.remove('fa-xmark');
+    menuIcon.classList.add('fa-bars');
+  };
+
+  document.querySelectorAll('.mobile-nav a').forEach(link=>{
+    link.addEventListener('click', closeMenu);
   });
 
-  const form = document.getElementById("appointmentForm");
-  const spinner = document.getElementById("spinner");
-  const successMsg = document.getElementById("successMsg");
-  const submitBtn = document.getElementById("submitBtn");
-
-  form.addEventListener("submit", async e => {
-    e.preventDefault();
-    spinner.classList.remove("hidden");
-    submitBtn.disabled = true;
-
-    if (form.company.value) return;
-
-    const data = Object.fromEntries(new FormData(form));
-    data.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-    try {
-      await fetch("https://YOUR-BACKEND-URL/api/appointments", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-      successMsg.classList.remove("hidden");
-      form.reset();
-    } catch {
-      alert("Submission failed. Please try again.");
-    } finally {
-      spinner.classList.add("hidden");
-      submitBtn.disabled = false;
-    }
-  });
+});
 </script>
 
 </body>

@@ -171,7 +171,7 @@
  <!-- FORM -->
 <form
   id="applicationForm"
-  action="https://your-backend-url/api/apply"
+  action="https://jaquest-backend.onrender.com/api/apply"
   method="POST"
   enctype="multipart/form-data"
   class="space-y-10"
@@ -400,10 +400,10 @@ if (menuBtn && mobileMenu && drawer) {
     }
 
     try {
-      const res = await fetch("https://your-backend-url/api/apply", {
-        method: "POST",
-        body: new FormData(form)
-      });
+      const res = await fetch("https://jaquest-backend.onrender.com/api/apply", {
+  method: "POST",
+  body: new FormData(form)
+});
 
       if (!res.ok) throw new Error();
       statusEl.textContent = "Application submitted successfully!";

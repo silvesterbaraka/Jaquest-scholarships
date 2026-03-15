@@ -406,17 +406,13 @@ video{
 }
 
 /* =========================================
-   HIDE DEFAULT CHATBASE BUTTON
-   (Use only JaQuest custom button)
+   HIDE CHATBASE DEFAULT BUBBLE
+   KEEP ONLY JAQUEST BUTTON
 ========================================= */
 
 #chatbase-bubble-button,
 .chatbase-bubble-button,
-div[id*="chatbase-bubble"],
-iframe[src*="chatbase"],
-.chatbase-container iframe{
+div[id^="chatbase-bubble"],
+div[class*="chatbase-bubble"]{
 display:none !important;
-visibility:hidden !important;
-opacity:0 !important;
-pointer-events:none !important;
 }

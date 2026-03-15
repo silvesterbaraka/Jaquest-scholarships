@@ -1546,7 +1546,7 @@ bg-[#f5deb3] text-gray-900 shadow-2xl z-50 md:hidden
 </nav>
 <!-- Icon Libraries -->
 <script src="https://unpkg.com/feather-icons"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/lucide@latest" defer></script>
 
 <!-- Libraries -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
@@ -1748,18 +1748,24 @@ if (closeBtn && mobileMenu) {
   /* ===============================
      GLOBAL API
   =============================== */
-
   window.toggleChat = () => {
-    const chat = document.getElementById("chatContainer");
-    if (!chat) return;
+  const chat = document.getElementById("chatContainer");
+  if (!chat) return;
 
-    const hidden = chat.classList.contains("translate-x-[120%]");
+  const isHidden = chat.classList.contains("translate-x-[120%]");
 
-    chat.classList.toggle("translate-x-[120%]", !hidden);
-    chat.classList.toggle("opacity-0", !hidden);
-    chat.classList.toggle("pointer-events-none", !hidden);
-  };
+  if (isHidden) {
+    chat.style.visibility = "visible";
+    chat.classList.remove("translate-x-[120%]", "opacity-0", "pointer-events-none");
+  } else {
+    chat.classList.add("translate-x-[120%]", "opacity-0", "pointer-events-none");
 
+    setTimeout(() => {
+      chat.style.visibility = "hidden";
+    }, 400);
+  }
+};
+  
   window.startJourney = () => {
     const loader = document.getElementById("loadingScreen");
     if (!loader) return;

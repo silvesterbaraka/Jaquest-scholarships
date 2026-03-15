@@ -404,3 +404,7 @@ video{
   }
 
 }
+
+#chatbase-bubble-button{
+display:none !important;
+}

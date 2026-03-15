@@ -1519,13 +1519,13 @@ transition-transform hover:scale-110"
      ICON LIBRARIES
 ================================ -->
 <script src="https://unpkg.com/feather-icons"></script>
-<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 
 <!-- ===============================
      LIBRARIES
 ================================ -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 <script>
 /* =====================================================
@@ -1537,9 +1537,7 @@ transition-transform hover:scale-110"
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ===============================
-     SMOOTH SCROLL
-  =============================== */
+  /* Smooth Scroll */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", e => {
       const target = document.querySelector(anchor.getAttribute("href"));
@@ -1549,15 +1547,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ===============================
-     FOOTER YEAR
-  =============================== */
+  /* Footer Year */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ===============================
-     MOBILE MENU
-  =============================== */
+  /* Mobile Menu */
   const menuBtn = document.getElementById("menu-button");
   const closeBtn = document.getElementById("close-menu");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -1576,15 +1570,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ===============================
-     ICON LIBRARIES
-  =============================== */
+  /* Icon Libraries */
   if (window.feather) feather.replace();
   if (window.lucide) lucide.createIcons();
 
-  /* ===============================
-     AOS ANIMATION
-  =============================== */
+  /* AOS Animation */
   if (window.AOS) {
     AOS.init({
       duration: 1000,
@@ -1598,9 +1588,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ===============================
-     PARALLAX EFFECT
-  =============================== */
+  /* Parallax Effect */
   let ticking = false;
 
   window.addEventListener("scroll", () => {
@@ -1622,11 +1610,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       ticking = false;
     });
+
   }, { passive: true });
 
-  /* ===============================
-     HERO VIDEO AUTO PLAY / PAUSE
-  =============================== */
+  /* Hero Video Smart Play */
   const heroVideo = document.querySelector(".video-parallax video");
 
   if (heroVideo && "IntersectionObserver" in window) {
@@ -1640,9 +1627,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ).observe(heroVideo);
   }
 
-  /* ===============================
-     SWIPER TESTIMONIAL SLIDER
-  =============================== */
+  /* Swiper Testimonials */
   if (window.Swiper && document.querySelector(".testimonialSwiper")) {
     new Swiper(".testimonialSwiper", {
       loop: true,
@@ -1670,9 +1655,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ===============================
-     COURSE COUNTER
-  =============================== */
+  /* Animated Course Counter */
   const counter = document.getElementById("animated-count");
 
   if (counter && "IntersectionObserver" in window) {
@@ -1697,12 +1680,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.6 }).observe(counter);
   }
 
-  /* ===============================
-     BOTTOM NAV VISIBILITY
-  =============================== */
-  const bottomNav = document.querySelector(
-    "nav[aria-label='Bottom navigation']"
-  );
+  /* Bottom Navigation Visibility */
+  const bottomNav = document.querySelector("nav[aria-label='Bottom navigation']");
 
   if (bottomNav) {
     const update = () => {
@@ -1716,16 +1695,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-/* ===============================
-   GLOBAL FUNCTIONS
-=============================== */
+/* Global Functions */
 
 window.startJourney = () => {
   const loader = document.getElementById("loadingScreen");
   if (!loader) return;
 
   loader.classList.remove("hidden");
-  setTimeout(() => (location.href = "form.html"), 1200);
+
+  setTimeout(() => {
+    location.href = "form.html";
+  }, 1200);
 };
 
 window.openVideoModal = () =>

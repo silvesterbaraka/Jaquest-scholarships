@@ -417,7 +417,7 @@ countryInput.addEventListener("change", () => {
     data.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     try {
-      const res = await fetch("https://YOUR-BACKEND-URL/api/appointments", {
+      const res = await fetch("https://jaquest-backend.onrender.com/api/appointments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)

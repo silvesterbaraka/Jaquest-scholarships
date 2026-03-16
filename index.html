@@ -1748,7 +1748,10 @@ window.addEventListener("load", () => {
     const script = document.createElement("script");
     script.src = "https://www.chatbase.co/embed.min.js";
     script.id = "JxlZj6qu7-Oln1aDGexWa";
-    script.dataset.chatbubble = "false"; /* disables default bubble */
+
+    /* THIS LINE FIXES THE PROBLEM */
+    script.setAttribute("data-chatbubble","false");
+
     document.body.appendChild(script);
   };
 

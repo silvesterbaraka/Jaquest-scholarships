@@ -403,35 +403,41 @@ video{
 }
 
 /* =====================================================
-   CHATBASE POSITION & BRAND STYLE
+   CHATBASE – JAQUEST BRAND STYLE
 ===================================================== */
 
+/* Position chatbot center-right */
+
 iframe[src*="chatbase"]{
-  right:16px !important;
+  right:18px !important;
   top:50% !important;
   bottom:auto !important;
   transform:translateY(-50%) !important;
 }
 
-/* Blue JaQuest chatbot theme */
+/* Blue JaQuest theme */
 
 #chatbase-bubble-button{
   background:#2563eb !important;
-  box-shadow:0 10px 25px rgba(0,0,0,.25) !important;
+  color:#ffffff !important;
+  box-shadow:0 12px 28px rgba(0,0,0,.28) !important;
+  border-radius:999px !important;
 }
+
+/* Hover interaction */
 
 #chatbase-bubble-button:hover{
   background:#1d4ed8 !important;
-  transform:scale(1.08) !important;
+  transform:scale(1.1) !important;
 }
 
-/* Mobile adjustment */
+/* Mobile positioning (avoid bottom nav overlap) */
 
 @media (max-width:768px){
 
   iframe[src*="chatbase"]{
     right:12px !important;
-    top:60% !important;
+    top:62% !important;
   }
 
 }

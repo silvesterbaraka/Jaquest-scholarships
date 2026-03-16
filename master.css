@@ -415,10 +415,3 @@ div[class*="chatbase-bubble"]{
 display:none !important;
 }
 
-iframe[src*="chatbase.co"]{
-display:none !important;
-}
-
-div[class*="chatbase"]{
-display:none !important;
-}

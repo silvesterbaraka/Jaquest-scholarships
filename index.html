@@ -1583,6 +1583,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ticking = true;
 
     requestAnimationFrame(() => {
+
       const y = window.scrollY;
 
       document.querySelectorAll(".parallax").forEach(el => {
@@ -1590,94 +1591,121 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const globe = document.querySelector(".globe-illustration");
+
       if (globe) {
         globe.style.transform =
           `translateY(${y * -0.15}px) scale(${Math.min(1.15, 1 + y * 0.0004)})`;
       }
 
       ticking = false;
+
     });
 
   }, { passive: true });
 
   /* Hero Video Smart Play */
+
   const heroVideo = document.querySelector(".video-parallax video");
 
   if (heroVideo && "IntersectionObserver" in window) {
-    new IntersectionObserver(
-      ([entry]) => {
-        entry.isIntersecting
-          ? heroVideo.play().catch(() => {})
-          : heroVideo.pause();
-      },
-      { threshold: 0.35 }
-    ).observe(heroVideo);
+
+    new IntersectionObserver(([entry]) => {
+
+      entry.isIntersecting
+        ? heroVideo.play().catch(() => {})
+        : heroVideo.pause();
+
+    }, { threshold: 0.35 }).observe(heroVideo);
+
   }
 
   /* Swiper Testimonials */
+
   if (window.Swiper && document.querySelector(".testimonialSwiper")) {
+
     new Swiper(".testimonialSwiper", {
+
       loop: true,
       speed: 900,
       spaceBetween: 24,
       grabCursor: true,
-      autoplay: {
-        delay: 6000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
+
+      autoplay:{
+        delay:6000,
+        disableOnInteraction:false,
+        pauseOnMouseEnter:true
       },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
+
+      pagination:{
+        el:".swiper-pagination",
+        clickable:true
       },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
+
+      navigation:{
+        nextEl:".swiper-button-next",
+        prevEl:".swiper-button-prev"
       },
-      breakpoints: {
-        320: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 }
+
+      breakpoints:{
+        320:{slidesPerView:1},
+        768:{slidesPerView:2},
+        1024:{slidesPerView:3}
       }
+
     });
+
   }
 
   /* Animated Course Counter */
+
   const counter = document.getElementById("animated-count");
 
   if (counter && "IntersectionObserver" in window) {
 
     let started = false;
+
     const end = 755;
     const duration = 1800;
 
     new IntersectionObserver(entries => {
 
       if (!entries[0].isIntersecting || started) return;
+
       started = true;
 
       let val = 0;
+
       const step = Math.max(duration / end, 10);
 
       const timer = setInterval(() => {
+
         counter.textContent = ++val + "+";
+
         if (val >= end) clearInterval(timer);
+
       }, step);
 
     }, { threshold: 0.6 }).observe(counter);
+
   }
 
   /* Bottom Navigation Visibility */
+
   const bottomNav = document.querySelector("nav[aria-label='Bottom navigation']");
 
   if (bottomNav) {
+
     const update = () => {
+
       bottomNav.style.display =
         window.innerWidth < 1280 ? "block" : "none";
+
     };
 
     update();
+
     window.addEventListener("resize", update);
+
   }
 
 });
@@ -1685,14 +1713,19 @@ document.addEventListener("DOMContentLoaded", () => {
 /* Global Functions */
 
 window.startJourney = () => {
+
   const loader = document.getElementById("loadingScreen");
+
   if (!loader) return;
 
   loader.classList.remove("hidden");
 
   setTimeout(() => {
+
     location.href = "form.html";
+
   }, 1200);
+
 };
 
 window.openVideoModal = () =>
@@ -1701,65 +1734,32 @@ window.openVideoModal = () =>
 })();
 </script>
 
+
 <!-- ===============================
      MOBILE REFLOW FIX
 ================================ -->
 <script>
 window.addEventListener("load", () => {
+
   document.body.style.overflowX = "hidden";
+
   requestAnimationFrame(() => {
+
     document.body.getBoundingClientRect();
+
   });
+
 });
 </script>
+
 
 <!-- ===============================
      CHATBASE AI CHATBOT
 ================================ -->
-<script>
-(function(){
-  if(!window.chatbase || window.chatbase("getState") !== "initialized"){
-    window.chatbase = (...args)=>{
-      if(!window.chatbase.q){window.chatbase.q=[]}
-      window.chatbase.q.push(args)
-    };
-    window.chatbase = new Proxy(window.chatbase,{
-      get(target,prop){
-        if(prop === "q"){return target.q}
-        return (...args)=>target(prop,...args)
-      }
-    });
-  }
 
-  const onLoad = function(){
-    const script = document.createElement("script");
-    script.src = "https://www.chatbase.co/embed.min.js";
-    script.id = "JxlZj6qu7-Oln1aDGexWa";
-
-    /* THIS LINE FIXES THE PROBLEM */
-    script.setAttribute("data-chatbubble","false");
-
-    document.body.appendChild(script);
-  };
-
-  if(document.readyState === "complete"){
-    onLoad();
-  } else {
-    window.addEventListener("load", onLoad);
-  }
-})();
-</script>
-<!-- ===============================
-     JAQUEST AI CHATBOT
-================================ -->
 <script>
 window.chatbaseConfig = {
-  chatbotId: "JxlZj6qu7-Oln1aDGexWa",
-  position: "right",
-  bubble: {
-    color: "#2563eb",
-    icon: "chat"
-  }
+  chatbotId: "JxlZj6qu7-Oln1aDGexWa"
 };
 </script>
 

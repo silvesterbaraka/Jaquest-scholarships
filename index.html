@@ -1162,19 +1162,6 @@ bg-[#f5deb3] text-gray-900 shadow-2xl z-50 md:hidden
   </div>
 </section>
 <!-- ===============================
-     FLOATING CHAT BUTTON
-================================ -->
-<button
-onclick="chatbase('open')"
-class="fixed top-1/2 right-4 -translate-y-1/2 z-[9999]
-bg-blue-600 hover:bg-blue-700 text-white
-p-3 md:p-4 rounded-full shadow-xl
-transition-transform hover:scale-110"
->
-<i data-lucide="message-circle" class="w-6 h-6"></i>
-</button>
-
-<!-- ===============================
      NEWS SECTION HEADER
 ================================ -->
 <section
@@ -1762,6 +1749,21 @@ window.addEventListener("load", () => {
   }
 })();
 </script>
+<!-- ===============================
+     JAQUEST AI CHATBOT
+================================ -->
+<script>
+window.chatbaseConfig = {
+  chatbotId: "JxlZj6qu7-Oln1aDGexWa",
+  position: "right",
+  bubble: {
+    color: "#2563eb",
+    icon: "chat"
+  }
+};
+</script>
+
+<script src="https://www.chatbase.co/embed.min.js" defer></script>
 </div>
 </body>
 </html>

@@ -404,15 +404,21 @@ video{
   }
 
 }
-
 /* =========================================
    HIDE CHATBASE DEFAULT BUBBLE
-   KEEP ONLY JAQUEST BUTTON
 ========================================= */
 
 #chatbase-bubble-button,
 .chatbase-bubble-button,
 div[id^="chatbase-bubble"],
 div[class*="chatbase-bubble"]{
+display:none !important;
+}
+
+iframe[src*="chatbase.co"]{
+display:none !important;
+}
+
+div[class*="chatbase"]{
 display:none !important;
 }
